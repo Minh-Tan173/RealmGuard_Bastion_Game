@@ -40,7 +40,49 @@ Each level follows a core gameplay loop:
   * Scale damage significantly through upgrades
   * Handle dense enemy waves
 - Key characteristics:
+  * Mage has **90° vision**
   * Low base damage
   * High attack speed
   * Magic projectiles that pierce through multiple enemies
 > This tower excels at punishing enemies that rely on speed rather than durability.
+
+## Guardian Tower
+The Guardian Tower operates by **summoning Guardian units that physically block enemies**, rather than attacking from range like other towers.
+- Design goals:
+  * Intercept specific ground enemies capable of dealing physical damage
+  * Establish a frontline defensive layer
+  * Protect other towers positioned behind it
+-  Key characteristics:
+  * Summons Guardian units that engage enemies in direct combat
+  * Guardians can only block certain ground enemies that possess physical attack capabilities
+  * Guardians fight enemies in direct melee confrontation
+  * Guardians receive a damage buff only while actively engaging an enemy face-to-face
+> Guardian Tower controls enemy movement and forms a frontline defense, slowing enemies down, protecting damage-dealing towers behind it, and enabling other towers to deal damage more effectively.
+
+## Catapult Tower
+- The Catapult Tower specializes in long-range area damage.
+- Design goals:
+  * Destroy large enemy groups
+  * Provide high burst damage
+  * Support late-game wave clearing
+- Key characteristics:
+  * Long attack range
+  * **AoE damage**
+  * Projectile volleys that can hit multiple enemies
+> Catapult Towers are particularly effective when enemy waves become larger and more densely packed.
+
+# 4: Ability System
+> Abilities enhance the defense system by providing diverse powers and unique ways to deal damage.
+
+The available abilities include:
+- **Spike Trap**: A trap placed on the path that damages enemies when stepped on.
+- **Thunder Lightning**: Summons instant lightning strikes at the selected location.
+- **Explosive Barrel**: A barrel that explodes and deals large area-of-effect damage.
+
+# 5: World Map & Progression System
+- The game uses a World Map to manage player progression.
+- From the World Map, players can:
+  * Select campaign levels
+  * View tower information
+  * View ability information
+  * Unlock new content
