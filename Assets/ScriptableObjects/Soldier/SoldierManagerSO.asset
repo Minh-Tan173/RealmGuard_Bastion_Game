@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9492497c517fc924ab092a3c9a302709, type: 3}
+  m_Name: SoldierManagerSO
+  m_EditorClassIdentifier: 
+  upArcherSO: {fileID: 11400000, guid: 40b29b088bee55e4cb4452f5c0afee54, type: 2}
+  rightArcherSO: {fileID: 11400000, guid: 57efdea5bb52cbf499d3a0a55ebf81d3, type: 2}
+  downArcherSO: {fileID: 11400000, guid: 3884c754d8b7a3646b787c22b6800122, type: 2}
+  leftArcherSO: {fileID: 11400000, guid: 414a6fdb29d51954ea754fd61bfabd84, type: 2}
+  upMageSO: {fileID: 11400000, guid: 2c29163ae23d35c48980dc484f465b5e, type: 2}
+  rightMageSO: {fileID: 11400000, guid: acc9cdaae98a5774dad466d7f770cd34, type: 2}
+  downMageSO: {fileID: 11400000, guid: dbf09c603f3355943839fecf2a34981b, type: 2}
+  leftMageSO: {fileID: 11400000, guid: 8c71d02f9b833254ea25f64da5e25611, type: 2}
+  catapulSO: {fileID: 11400000, guid: 7bbe0e40f5f23a941b2a4cae6c6aead7, type: 2}
+  guardianSO: {fileID: 11400000, guid: 6e4892832f8ddbf43a8cf1da314a681b, type: 2}

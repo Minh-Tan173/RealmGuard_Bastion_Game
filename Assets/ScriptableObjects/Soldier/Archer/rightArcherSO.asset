@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0f87d38f550abf4f9cb28fb365a9da4, type: 3}
+  m_Name: rightArcherSO
+  m_EditorClassIdentifier: 
+  viewAngle: 70
+  soldierPrefab: {fileID: 8343162566016909995, guid: e5ecc56a15058484497e8fd741afb432, type: 3}
+  bulletPrefab: {fileID: 1042335091570745730, guid: f4182edac5c024b47a1a08d9d7cf7329, type: 3}

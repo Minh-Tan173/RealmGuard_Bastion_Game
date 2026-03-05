@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910600817aa685d4aa731c82ec11df67, type: 3}
+  m_Name: TreeSO
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8863346572886251896, guid: 36ad8834eb20de649b472ec8275fa4e2, type: 3}
+  spriteArray:
+  - {fileID: 700037275, guid: bb1cd1e30c6cc254abd050da59e47aa0, type: 3}
+  - {fileID: -1279287764, guid: 1bc3f4e14c1dd6a4284ec2f0426c3f6b, type: 3}
+  - {fileID: -932735876, guid: 6c9187d0c8cf8af4598ab437bed21e7e, type: 3}
+  - {fileID: -152823643, guid: e6711676540437642806c3d231ce749f, type: 3}

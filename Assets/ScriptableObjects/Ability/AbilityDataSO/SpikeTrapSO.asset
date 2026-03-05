@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22b7bc5609669e4e97c9997772ca5fd, type: 3}
+  m_Name: SpikeTrapSO
+  m_EditorClassIdentifier: 
+  abilityType: 3
+  abilityName: Spike Trap
+  description: 
+  prefab: {fileID: 4609384064484379925, guid: 7e280935722bdb644ac24d800949897f, type: 3}
+  iconPrefab: {fileID: 6052660063709094359, guid: 9a9cd694bf06fef4dbf110145e6c89f5, type: 3}
+  canAttackLayer:
+    serializedVersion: 2
+    m_Bits: 3072
+  price: 500
+  abilityLevelDataList:
+  - level: 1
+    pointUnlock: 1
+    damage: 5
+    aoeRadius: 1
+    cdTimer: 5
+    specificData:
+      rid: 6998439430126829568
+  - level: 2
+    pointUnlock: 2
+    damage: 6
+    aoeRadius: 1
+    cdTimer: 4
+    specificData:
+      rid: 6998439430126829569
+  - level: 3
+    pointUnlock: 3
+    damage: 6
+    aoeRadius: 1
+    cdTimer: 3
+    specificData:
+      rid: 6998439430126829570
+  references:
+    version: 2
+    RefIds:
+    - rid: 6998439430126829568
+      type: {class: SpikeTrapSpecificData, ns: , asm: Assembly-CSharp}
+      data:
+        strikeCount: 1
+    - rid: 6998439430126829569
+      type: {class: SpikeTrapSpecificData, ns: , asm: Assembly-CSharp}
+      data:
+        strikeCount: 3
+    - rid: 6998439430126829570
+      type: {class: SpikeTrapSpecificData, ns: , asm: Assembly-CSharp}
+      data:
+        strikeCount: 9

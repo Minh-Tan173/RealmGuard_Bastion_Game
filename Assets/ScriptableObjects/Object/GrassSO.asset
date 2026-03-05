@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 910600817aa685d4aa731c82ec11df67, type: 3}
+  m_Name: GrassSO
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 4463337680577584357, guid: a189a873c88e956488e706839f9ff223, type: 3}
+  spriteArray:
+  - {fileID: 21300000, guid: 6b9173982a62a524994111e8c8cdae19, type: 3}
+  - {fileID: 21300000, guid: 2c9660012b6a8da49876a7912338edb1, type: 3}
+  - {fileID: 21300000, guid: a7d91a4260d4b23439d5e4e92aba373e, type: 3}
+  - {fileID: 21300000, guid: 35f4b84b5ec0caf4e96a8a3829b0da00, type: 3}
+  - {fileID: 21300000, guid: beda3a30619266c4c954b8f79d326131, type: 3}
+  - {fileID: 21300000, guid: 502f39006c842eb40a9606ddda2251ba, type: 3}

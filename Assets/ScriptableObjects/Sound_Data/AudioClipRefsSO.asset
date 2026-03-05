@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: de73d479c1eed4f40b4b904eead667e4, type: 3}
+  m_Name: AudioClipRefsSO
+  m_EditorClassIdentifier: 
+  paperScrollDownSFX: {fileID: 8300000, guid: 8a2eadab16d4b7a4d8ac84b554a59e4f, type: 3}
+  paperScrollUpSFX: {fileID: 8300000, guid: 7eacdbae391cf5f48a83ff42f115a248, type: 3}
+  buttonClickedSFX: {fileID: 8300000, guid: 77396b478bc06bf479b290730b24b0a7, type: 3}
+  buttonDataHubClickedSFX: {fileID: 8300000, guid: ae3bf550ab339a94c8eb319e1c97862d, type: 3}
+  buttonScrollClickedSFX: {fileID: 8300000, guid: 09db7a1470b61504b8d7fa2edee3820c, type: 3}
+  explosionBarrelSFX: {fileID: 8300000, guid: a8a1dfcedbbcbc942b71c685d20fcc19, type: 3}
+  thunderStrikeSFX: {fileID: 8300000, guid: 712a2c8ff5f43b448b51e1bccbb56300, type: 3}
+  spikeAttackSFX: {fileID: 8300000, guid: 836c64696df5c9747ae72b00239c90e6, type: 3}
+  towerUpgradeProgressSFX: {fileID: 8300000, guid: f8a6887e19760db47a362154d23e3ce8, type: 3}
+  archerTowerPlacedSFX: {fileID: 8300000, guid: fbbbd1210ce2bae4798c7992919b8420, type: 3}
+  archerSpawnSFX:
+  - {fileID: 8300000, guid: d80511ae6d79e244a839913a34ed2a0e, type: 3}
+  - {fileID: 8300000, guid: 2fc41636b07a4774aba921b88f5a4086, type: 3}
+  - {fileID: 8300000, guid: b813712b71782f64bb268ba330033038, type: 3}
+  - {fileID: 8300000, guid: 9ea194f35adea5d42b6f4a8504a16bbf, type: 3}
+  archerAttackSFX: {fileID: 8300000, guid: 0d41014817a7f634db46b4a65b261568, type: 3}
+  archerTowerUpgradeSuccessSFX: {fileID: 8300000, guid: 66d25b53b3c012e4ab840a2c4615b48c, type: 3}
+  mageTowerPlacedSFX: {fileID: 8300000, guid: 8e81b7e182e53d04a8d90124c3c7d7ea, type: 3}
+  mageSpawnSFX:
+  - {fileID: 8300000, guid: 46b5591a8625e8642afe4a2bbd0b8231, type: 3}
+  - {fileID: 8300000, guid: f665c821b03130446bc145e453d159d1, type: 3}
+  - {fileID: 8300000, guid: 9d1c5e3f71921444098788785f1ae30b, type: 3}
+  - {fileID: 8300000, guid: 1bf4cc531841bef4b958b3f8cd50221d, type: 3}
+  mageAttackSFX: {fileID: 8300000, guid: 5a0dd58cde4a12343adf9990577c1dea, type: 3}
+  mageTowerUpgradeSuccessSFX: {fileID: 8300000, guid: a9304565e39906249adde112d0b18874, type: 3}
+  catapultTowerPlacedSFX: {fileID: 8300000, guid: 35f92a0191220c64b94deb20275c10fa, type: 3}
+  catapultAttackSFX: {fileID: 8300000, guid: 6e614b36bd3b43d4292c65074ed6f21b, type: 3}
+  catapultTowerUpgradeSuccessSFX: {fileID: 8300000, guid: b32301e176939794b864ec84b09255cb, type: 3}
+  guardianTowerPlacedSFX: {fileID: 8300000, guid: a364f900ea5213b41912a1e39280f073, type: 3}
+  guardianOnCommandMovedSFX:
+  - {fileID: 8300000, guid: c6eeb1318b654a64f842f27fc0092bd1, type: 3}
+  - {fileID: 8300000, guid: b6a688fc95e4e8046adc8c51bd4cb3db, type: 3}
+  - {fileID: 8300000, guid: 9fd84c871834e2a43a53f6c23fca684d, type: 3}
+  guardianTowerOnAssignPosVisualSFX:
+  - {fileID: 8300000, guid: 440a46f9b3ba13942b519ead6490d6cd, type: 3}
+  - {fileID: 8300000, guid: d9e11c495e1465d4dbf9c1b5400203b5, type: 3}
+  - {fileID: 8300000, guid: dd4f3692a317b1e44bd9a44be8f3666a, type: 3}
+  guardianDeployComplete: {fileID: 8300000, guid: bd598cfa7cd069e4191a78f09c4dc6aa, type: 3}
+  guardianTowerUpgradeSuccessSFX: {fileID: 8300000, guid: b27baead1638fbe4994d4311f7452cce, type: 3}

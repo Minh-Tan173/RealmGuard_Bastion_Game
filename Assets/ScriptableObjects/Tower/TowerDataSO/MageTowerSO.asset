@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80e5a18421f86d645b29f713acfb4177, type: 3}
+  m_Name: MageTowerSO
+  m_EditorClassIdentifier: 
+  towerType: 2
+  nameTower: Mage Tower
+  description: qwejfnsajdlhfqowherqhweedjfhnjk
+  prefab: {fileID: 6549162449638547725, guid: 5d279d707060b9b4ba1b57807d84390f, type: 3}
+  icon: {fileID: 1995947485458168286, guid: 6c1164f0d85e091408d59651f0791312, type: 3}
+  price: 400
+  fixedCost: 0
+  healthTower: 50
+  baseRange: 3.5
+  soldierManagerSO: {fileID: 11400000, guid: a22890795275d9b4e9f12fe3d81989be, type: 2}
+  scanTimerMax: 0.2
+  placedSFXTimer: 0.6
+  groundEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  flyEnemyLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  priceMage: 200
+  viewAngle: 90
+  towerLevelDataList:
+  - levelTower: 1
+    currentSprite: {fileID: 538892592, guid: 65b4ccef719acfe41a70763643692805, type: 3}
+    upgradeTimer: 1
+    upgradeCost: 0
+    attackDamage: 2
+    attackRange: 0
+    recoilTimer: 0.3
+    mageSpawnPos: {x: 0, y: 0, z: 0}
+  - levelTower: 2
+    currentSprite: {fileID: -145018517, guid: 776b72ee8e5d35b48b3322ea220435aa, type: 3}
+    upgradeTimer: 1
+    upgradeCost: 100
+    attackDamage: 2
+    attackRange: 4
+    recoilTimer: 0.3
+    mageSpawnPos: {x: 0, y: 0.06, z: 0}
+  - levelTower: 3
+    currentSprite: {fileID: -1920315542, guid: f9382d5323e824e4f80bca0b11828179, type: 3}
+    upgradeTimer: 0
+    upgradeCost: 0
+    attackDamage: 0
+    attackRange: 0
+    recoilTimer: 0
+    mageSpawnPos: {x: 0, y: 0.16, z: 0}
+  - levelTower: 4
+    currentSprite: {fileID: 1808358564, guid: d8df725fa8354e544a5e55100e861bb9, type: 3}
+    upgradeTimer: 0
+    upgradeCost: 0
+    attackDamage: 0
+    attackRange: 0
+    recoilTimer: 0
+    mageSpawnPos: {x: 0, y: 0.473, z: 0}
+  magicBoltSpeed: 12

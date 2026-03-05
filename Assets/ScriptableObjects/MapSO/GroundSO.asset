@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca367a612ad4694468be31aaad113d0a, type: 3}
+  m_Name: GroundSO
+  m_EditorClassIdentifier: 
+  mapWidth: 32
+  mapHeight: 18
+  spawnWaitTimer: 0.00005
+  floorTile: {fileID: 11400000, guid: 034b4db15bbbc984d932b8538e244669, type: 2}
+  borderRuleTile: {fileID: 11400000, guid: 89326160071eba84ea9dc5b69b13c8a2, type: 2}
+  fenceRuleTile: {fileID: 11400000, guid: 2a51aef4f644ef64195d4a0e74d786a7, type: 2}

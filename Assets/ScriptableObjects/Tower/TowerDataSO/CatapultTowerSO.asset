@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eefa260f6e9b9954cbd9f70f72a78f9f, type: 3}
+  m_Name: CatapultTowerSO
+  m_EditorClassIdentifier: 
+  towerType: 3
+  nameTower: Catapult Tower
+  description: asdfasdfgaasdf
+  prefab: {fileID: 5525997062260903517, guid: b2ae57a883c62c545a7742e109a0b97d, type: 3}
+  icon: {fileID: 8551092339147742886, guid: 3ff672ca77fbe824987025c6e3148472, type: 3}
+  price: 800
+  fixedCost: 400
+  healthTower: 100
+  baseRange: 2.6
+  soldierManagerSO: {fileID: 11400000, guid: a22890795275d9b4e9f12fe3d81989be, type: 2}
+  scanTimerMax: 0.2
+  placedSFXTimer: 0.8
+  canAttackLayer:
+    serializedVersion: 2
+    m_Bits: 1024
+  blindSpotRange: 1.5
+  towerLevelDataList:
+  - levelTower: 1
+    upgradeTimer: 2
+    upgradeCost: 0
+    attackDamage: 4
+    attackRange: 0
+    pebbleSpeed: 6
+    pebblePerVolley: 1
+    pebbleSplashRadius: 0.25
+    recoilTimer: 3
+    catapulSpawnPos: {x: 0, y: 0.08, z: 0}
+  - levelTower: 2
+    upgradeTimer: 3
+    upgradeCost: 500
+    attackDamage: 5
+    attackRange: 2.8
+    pebbleSpeed: 6
+    pebblePerVolley: 2
+    pebbleSplashRadius: 0.19
+    recoilTimer: 2.7
+    catapulSpawnPos: {x: 0, y: 0.128, z: 0}
+  - levelTower: 3
+    upgradeTimer: 4
+    upgradeCost: 1500
+    attackDamage: 6
+    attackRange: 3
+    pebbleSpeed: 6
+    pebblePerVolley: 3
+    pebbleSplashRadius: 0.24
+    recoilTimer: 2.4
+    catapulSpawnPos: {x: 0, y: 0.27, z: 0}
+  - levelTower: 4
+    upgradeTimer: 5
+    upgradeCost: 1800
+    attackDamage: 8
+    attackRange: 3.3
+    pebbleSpeed: 6
+    pebblePerVolley: 3
+    pebbleSplashRadius: 0.3
+    recoilTimer: 2.1
+    catapulSpawnPos: {x: 0, y: 0.55, z: 0}

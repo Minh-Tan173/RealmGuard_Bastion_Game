@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a3cc5ce8f42f0e41b10ffdd78ca456e, type: 3}
+  m_Name: Path_Level4_SO
+  m_EditorClassIdentifier: 
+  pathTile: {fileID: 11400000, guid: be60e790e6f3de044943e683a9a36333, type: 2}
+  pathHorizontal:
+    rightUpTile: {fileID: 11400000, guid: e0b2c81fdc292e7408981c9684c70a94, type: 2}
+    leftUpTile: {fileID: 11400000, guid: e0b2c81fdc292e7408981c9684c70a94, type: 2}
+    rightDownTile: {fileID: 11400000, guid: bb83355b53d8c5548ae311981ff1dc92, type: 2}
+    leftDownTile: {fileID: 11400000, guid: bb83355b53d8c5548ae311981ff1dc92, type: 2}
+  pathVertical:
+    rightUpTile: {fileID: 11400000, guid: 61348c469c6163f4bb24cc75f1114995, type: 2}
+    leftUpTile: {fileID: 11400000, guid: e9168368491154f4fb92af75f95f7f84, type: 2}
+    rightDownTile: {fileID: 11400000, guid: 61348c469c6163f4bb24cc75f1114995, type: 2}
+    leftDownTile: {fileID: 11400000, guid: e9168368491154f4fb92af75f95f7f84, type: 2}
+  pathBottomLeft:
+    rightUpTile: {fileID: 11400000, guid: 32971da51364e184893774e140b62148, type: 2}
+    leftUpTile: {fileID: 11400000, guid: e9168368491154f4fb92af75f95f7f84, type: 2}
+    rightDownTile: {fileID: 11400000, guid: bb83355b53d8c5548ae311981ff1dc92, type: 2}
+    leftDownTile: {fileID: 11400000, guid: eaa5c36486dac294b900a95ad5f8e35e, type: 2}
+  pathBottmRight:
+    rightUpTile: {fileID: 11400000, guid: 61348c469c6163f4bb24cc75f1114995, type: 2}
+    leftUpTile: {fileID: 11400000, guid: 34210c52d0fa5de46ab6fa28e84ecaae, type: 2}
+    rightDownTile: {fileID: 11400000, guid: a7d7ae5419338eb49a5751231f1065ae, type: 2}
+    leftDownTile: {fileID: 11400000, guid: bb83355b53d8c5548ae311981ff1dc92, type: 2}
+  pathTopLeft:
+    rightUpTile: {fileID: 11400000, guid: e0b2c81fdc292e7408981c9684c70a94, type: 2}
+    leftUpTile: {fileID: 11400000, guid: 270e6d87ed02812408245841d4319b62, type: 2}
+    rightDownTile: {fileID: 11400000, guid: 96275b76b0d05324a8c031140be1dfbd, type: 2}
+    leftDownTile: {fileID: 11400000, guid: 6b284d4ba06161e4d8a0371e6b6d2dac, type: 2}
+  pathTopRight:
+    rightUpTile: {fileID: 11400000, guid: f8b4ea31e7574c541a5479e2a31295f2, type: 2}
+    leftUpTile: {fileID: 11400000, guid: e0b2c81fdc292e7408981c9684c70a94, type: 2}
+    rightDownTile: {fileID: 11400000, guid: 69b9cbe3aa3cf0c40b66bfe4f4f95d74, type: 2}
+    leftDownTile: {fileID: 11400000, guid: f46f86f41b439bd44a0e2dac6a9d2188, type: 2}
+  maxNumberCanMoveStraight: 3
+  minNumberCanMoveStraight: 2
+  spawnTileTimer: 0.05
+  maxNumberOfPathTile: 90
+  waypointPrefab: {fileID: 4734906673992801534, guid: b5bddcc482660404bb3a2e1903bb2279, type: 3}

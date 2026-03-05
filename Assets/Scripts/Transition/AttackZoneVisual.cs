@@ -1,0 +1,168 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class AttackZoneVisual : MonoBehaviour
+{
+
+    [Header("Parent")]
+    [SerializeField] private Transform parentTower;
+
+    [Header("Data")]
+    [SerializeField] private float fadeInTimerMax;
+    [SerializeField] private float fadeOutTimerMax;
+    [SerializeField] private float maxAlphaValue;
+
+    private ITowerObject towerObject;
+
+    private Coroutine currentCoroutine;
+    private bool isFirstStart = true;
+
+    private void Awake() {
+
+        towerObject = parentTower.GetComponent<ITowerObject>();
+
+        if (towerObject == null) {
+
+            Debug.LogError("parent dont inherit ITowerObject interface");
+            
+        }
+
+    }
+
+    private void Start() {
+
+        towerObject.OnAttackZone += TowerObject_OnAttackZone;
+        towerObject.UnAttackZone += TowerObject_UnAttackZone;
+        towerObject.UpdateAttackZone += TowerObject_UpdateAttackZone;
+
+        HideAttackZone();
+    }
+
+    private void OnDestroy() {
+        towerObject.OnAttackZone -= TowerObject_OnAttackZone;
+        towerObject.UnAttackZone -= TowerObject_UnAttackZone;
+        towerObject.UpdateAttackZone -= TowerObject_UpdateAttackZone;
+    }
+
+    private void TowerObject_UpdateAttackZone(object sender, ITowerObject.UpgradeAttackZoneEventArgs e) {
+        // Setup circle size
+
+        float attackZone = e.attackZone;
+        this.transform.localScale = new Vector3(attackZone * 2f, attackZone * 2f, 1f);
+    }
+
+    private void TowerObject_UnAttackZone(object sender, System.EventArgs e) {
+
+        HideAttackZone();
+    }
+
+    private void TowerObject_OnAttackZone(object sender, System.EventArgs e) {
+
+        ShowAttackZone();
+
+    }
+
+    private void SetColorImage(float alphaValueNormalized, SpriteRenderer sprite) {
+
+        Color tempColor = sprite.color;
+        tempColor.a = Mathf.Clamp01(alphaValueNormalized);
+        sprite.color = tempColor;
+
+    }
+
+    private IEnumerator FadeIn() {
+        // Alpha tăng dần
+
+        float timer = 0f;
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+
+        // Start
+        SetColorImage(0f, sprite);
+
+        yield return null;
+
+        // FadeIn progress
+        while (timer <= fadeInTimerMax) {
+
+            float alphaValue = (timer / fadeInTimerMax) * maxAlphaValue;
+
+            SetColorImage(alphaValue, sprite);
+
+            timer += Time.deltaTime;
+
+            yield return null;
+        }
+
+        // End
+        yield return null;
+
+        SetColorImage(maxAlphaValue, sprite);
+
+    }
+
+    private IEnumerator FadeOut() {
+        // Alpha giảm dần
+
+        float timer = fadeOutTimerMax;
+        SpriteRenderer sprite = GetComponent<SpriteRenderer>();
+
+        // Start
+        SetColorImage(maxAlphaValue, sprite);
+
+        yield return null;
+
+        // FadeIn progress
+        while (timer >= 0f) {
+
+            float alphaValue = (timer / fadeOutTimerMax) * maxAlphaValue;
+
+            SetColorImage(alphaValue, sprite);
+
+            timer -= Time.deltaTime;
+
+            yield return null;
+        }
+
+        // End
+        yield return null;
+
+        SetColorImage(0f, sprite);
+
+        this.gameObject.SetActive(false);
+    }
+
+    private void ShowAttackZone() {
+
+        this.gameObject.SetActive(true);
+
+        if (currentCoroutine != null) {
+            StopCoroutine(currentCoroutine);
+            currentCoroutine = null;
+        }
+
+        currentCoroutine = StartCoroutine(FadeIn());
+    }
+
+    private void HideAttackZone() {
+
+        if (isFirstStart) {
+
+            this.gameObject.SetActive(false);
+            isFirstStart = false;
+
+        }
+        else {
+
+            if (currentCoroutine != null) {
+                StopCoroutine(currentCoroutine);
+                currentCoroutine = null;
+            }
+
+            currentCoroutine = StartCoroutine(FadeOut());
+        }
+
+    }
+
+}

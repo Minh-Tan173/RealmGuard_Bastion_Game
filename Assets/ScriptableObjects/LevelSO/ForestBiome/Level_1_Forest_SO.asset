@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e5d5d1ebc2075d148845d153e596b161, type: 3}
+  m_Name: Level_1_Forest_SO
+  m_EditorClassIdentifier: 
+  gameMode: 0
+  biomeType: 1
+  gameLevel: 1
+  startGameTimer: 1
+  endTurnTimer: 1
+  coinStart: 300000
+  numberOfHeart: 100
+  waveScriptList:
+  - waveName: Wave_1
+    enemyGroupList:
+    - enemyTypeSO: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
+      numberEnemy: 10
+      cdSpawnTimer: 1
+    newEnemy: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
+    newEnemyAnomaly: {fileID: 0}
+  - waveName: Wave_2
+    enemyGroupList:
+    - enemyTypeSO: {fileID: 11400000, guid: b8cd50520d969244ca50ddea31ec3638, type: 2}
+      numberEnemy: 10
+      cdSpawnTimer: 0.5
+    - enemyTypeSO: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
+      numberEnemy: 20
+      cdSpawnTimer: 0.5
+    newEnemy: {fileID: 0}
+    newEnemyAnomaly: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
+  - waveName: Wave_3
+    enemyGroupList:
+    - enemyTypeSO: {fileID: 11400000, guid: b8cd50520d969244ca50ddea31ec3638, type: 2}
+      numberEnemy: 20
+      cdSpawnTimer: 0.5
+    - enemyTypeSO: {fileID: 11400000, guid: fc2a35ba1fcc4a041abc337dd0c83ffe, type: 2}
+      numberEnemy: 10
+      cdSpawnTimer: 1
+    - enemyTypeSO: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
+      numberEnemy: 30
+      cdSpawnTimer: 0.1
+    newEnemy: {fileID: 11400000, guid: fc2a35ba1fcc4a041abc337dd0c83ffe, type: 2}
+    newEnemyAnomaly: {fileID: 0}
+  newTower: 2
+  pointGetWhenWin: 1

@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fb13c6e150666494c985bb32145ca5c0, type: 3}
+  m_Name: AbilityManagerSO
+  m_EditorClassIdentifier: 
+  thunderLightningSO: {fileID: 11400000, guid: 4d33b877991f5db408435c82846172c2, type: 2}
+  explosiveBarrelSO: {fileID: 11400000, guid: 58a899802a9c5e24da6a87c8f2b951b0, type: 2}
+  spikeTrap: {fileID: 11400000, guid: 53576bb12f955204689e243a00eac1b5, type: 2}

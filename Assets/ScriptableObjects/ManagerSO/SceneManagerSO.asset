@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4b69fc8de3952a4e979944967cb9f4d, type: 3}
+  m_Name: SceneManagerSO
+  m_EditorClassIdentifier: 
+  levelManagerUI: {fileID: 1118003477253969628, guid: 6cdf6110b31a95045a4d597d86ce0a6a, type: 3}
+  gamePauseUI: {fileID: 0}
+  gameOverUI: {fileID: 956426638543114169, guid: 481303088f8a05c488cdb5f6c05a7c97, type: 3}
+  gameWinUI: {fileID: 956426638543114169, guid: a0a31f902cf308e4b9e70f27ef8acad9, type: 3}
+  modeSelectUI: {fileID: 4785380664132962517, guid: 1f3f990f237af3c48a1cfbc9b13de9d7, type: 3}
+  campaignMapUI: {fileID: 4877012218312444261, guid: e46987906aaab5048989d9eb97e6165e, type: 3}
+  customMapUI: {fileID: 5072854738858992042, guid: 44aa3f470faab1441bf31a19a8635f34, type: 3}
+  upgradeAbilityUI: {fileID: 1833620464371023866, guid: da9a5494d137ef64d833a645efe7661d, type: 3}
+  dataTowerUI: {fileID: 8268913190122158200, guid: e1d12027273f0f246be009f74c413dbe, type: 3}
+  creditsUI: {fileID: 7606392997572745177, guid: 841a64b629813044a8ca5a1b26fde5c0, type: 3}

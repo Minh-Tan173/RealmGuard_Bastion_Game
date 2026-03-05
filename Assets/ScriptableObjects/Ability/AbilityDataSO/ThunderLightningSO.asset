@@ -1,0 +1,50 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c22b7bc5609669e4e97c9997772ca5fd, type: 3}
+  m_Name: ThunderLightningSO
+  m_EditorClassIdentifier: 
+  abilityType: 1
+  abilityName: Thunder Lightning
+  description: 
+  prefab: {fileID: 1244444703942577085, guid: b0dea4e9af1530442835a8389b6b99e7, type: 3}
+  iconPrefab: {fileID: 7719046608174368494, guid: 8da5b69e47eee8244a7f889391be2701, type: 3}
+  canAttackLayer:
+    serializedVersion: 2
+    m_Bits: 3136
+  price: 1000
+  abilityLevelDataList:
+  - level: 1
+    pointUnlock: 1
+    damage: 4
+    aoeRadius: 1
+    cdTimer: 5
+    specificData:
+      rid: -2
+  - level: 2
+    pointUnlock: 2
+    damage: 8
+    aoeRadius: 1
+    cdTimer: 4
+    specificData:
+      rid: -2
+  - level: 3
+    pointUnlock: 3
+    damage: 16
+    aoeRadius: 1
+    cdTimer: 3
+    specificData:
+      rid: -2
+  references:
+    version: 2
+    RefIds:
+    - rid: -2
+      type: {class: , ns: , asm: }

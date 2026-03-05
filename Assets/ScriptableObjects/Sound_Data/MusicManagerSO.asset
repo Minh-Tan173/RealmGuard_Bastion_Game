@@ -1,0 +1,19 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2ab713bb53db814987855b20207026b, type: 3}
+  m_Name: MusicManagerSO
+  m_EditorClassIdentifier: 
+  mainTheme:
+  - {fileID: 8300000, guid: 550b7491727958541a9bd0912ee337b7, type: 3}
+  startGameBattleTheme: {fileID: 8300000, guid: 2e0c4d48913fa9f4ebf6ba6cc3089712, type: 3}
+  gameOverTheme: {fileID: 8300000, guid: 19952c868a3e03641814a52483241505, type: 3}
+  gameWinTheme: {fileID: 8300000, guid: 3fc52b9481c88954491732b11846215d, type: 3}

@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c443dba30236741880498f9669af20, type: 3}
+  m_Name: BeeSO
+  m_EditorClassIdentifier: 
+  enemyName: Bee
+  description: Bee is an extremely fast flying enemy with low HP. If not intercepted
+    early, it can slip past your defenses and strike your base before you have time
+    to react.
+  anomalyDescription: 
+  totalHealth: 4
+  moveSpeed: 2.2
+  radiusOffset: 0.5
+  detectedZone: 0
+  attackDamage: 0
+  homeBaseLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  canAttackLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  deathTimer: 0.51
+  randomTargetTimer: 0.8
+  thinkingTimer: 0
+  attackTimer: 0
+  prefab: {fileID: 3026658704403384466, guid: a7021866cc6c8ef4cbd70d4a4b2a3e21, type: 3}
+  introductionUI: {fileID: 6741220831634058104, guid: bd176867bce16854ca4e91edc673d28c, type: 3}

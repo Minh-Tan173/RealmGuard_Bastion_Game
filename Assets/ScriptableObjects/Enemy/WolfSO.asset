@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43c443dba30236741880498f9669af20, type: 3}
+  m_Name: WolfSO
+  m_EditorClassIdentifier: 
+  enemyName: Wolf
+  description: Wolf is a fast ground enemy with moderate HP. It races ahead and slips
+    through weak defenses if not stopped quickly.
+  anomalyDescription: 'Wolf has a "Frenzy Anomaly":  Occasionally howls and enters
+    a berserk state, shredding nearby towers with rapid bites for a short burst.'
+  totalHealth: 12
+  moveSpeed: 1.8
+  radiusOffset: 0.6
+  detectedZone: 2.8
+  attackDamage: 1
+  homeBaseLayer:
+    serializedVersion: 2
+    m_Bits: 512
+  canAttackLayer:
+    serializedVersion: 2
+    m_Bits: 128
+  deathTimer: 0.51
+  randomTargetTimer: 0.9
+  thinkingTimer: 0.5
+  attackTimer: 0.45
+  prefab: {fileID: 2238003016864604211, guid: b83933fb8a77eeb4bbe638656aa3302c, type: 3}
+  introductionUI: {fileID: 2836987239984167797, guid: 8f9b7b7bbf69b2249bd1d15c0c1292dc, type: 3}
