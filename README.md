@@ -28,9 +28,9 @@ Each level follows a core gameplay loop:
   * Handle multiple enemy types
   * Serve as the **foundation of early-game defense**
 - Key characteristics:
-    *  Archer has **75° vision**
-    *  Can target **all target**
-    *  Balanced attack speed and damage
+  *  Archer has **75° vision**
+  *  Can target **all target**
+  *  Balanced attack speed and damage
 > Because of its flexibility, Archer Towers are commonly used to **cover multiple lanes and provide consistent damage output** throughout the game.
 
 ## Mage Tower
@@ -86,3 +86,60 @@ The available abilities include:
   * View tower information
   * View ability information
   * Unlock new content
+- After completing a level, players receive Blue Flame Points.
+- These points can be used to:
+  * Unlock new abilities
+  * Unlock higher tower upgrade levels (this feature will be added in a future update)
+    
+# 6: Procedural Map Generation System
+## Progress: Background → Ground → Path → Object Placement
+- One of the key technical systems in the project is **the Procedural Map Generation System**.
+- The system is built on a grid-based procedural generation approach, allowing dynamic map layouts while maintaining gameplay constraints required for tower defense mechanics.
+- The goals of this system are:
+  * Generate varied map layouts
+  * Ensure valid enemy paths
+  * Support tower placement logic
+  * Enable future custom map generation
+## Grid Node Structure
+- The map is represented using a GridNode structure.
+- Each node stores information such as:
+  * Position
+  * Grid type
+  * Index
+  * Object placement state
+- This grid acts as the **core data structure for the entire map generation pipeline
+
+## Background Generation
+- The first step of the map generation process is Background Generation.
+- **The BackgroundGenerator** is responsible for creating the base layer of the map by:
+  * Generating background tiles
+  * Filling the area that visually supports the playable map
+> This layer serves as the visual foundation of the environment.
+
+## Ground Generation
+- After the background is created, the GroundGenerator builds the main terrain of the map based on the grid system.
+- The system will:
+  * Initialize the grid map
+  * Generate **floor tiles** where towers can be placed
+  * Create **fence tiles** along the map borders to define map boundaries
+> The ground layer becomes the primary gameplay area where players interact with the tower placement system.
+
+## Path Generation
+- Once the ground map is created, the PathGenerator generates the enemy path.
+- The process includes:
+  1. Determine **Spawn Point**
+  2. Determine **Base Destination**
+  3. Generate a continuous path between the two points
+- The algorithm ensures:
+  * The path is continuous
+  * No dead-ends paths are created
+  * Enemies always have a valid traversal path
+> This guarantees that the map is always playable from a tower defense perspective.
+
+## Object Placement
+- After the terrain and path are completed, the ObjectPlaced system handles environmental object placement.
+- The system will:
+  * Spawn environmental objects across the map
+  * Avoid placing objects on enemy paths
+  * Distribute objects according to the terrain layout
+> This step helps make the map feel more natural and visually dynamic.
