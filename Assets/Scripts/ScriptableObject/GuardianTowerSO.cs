@@ -13,7 +13,7 @@ public class GuardianTowerSO : TowerSO
     public float damageBonusRate;
 
     [Header("Tower Status")]
-    public float deployGuardianTimer;
+    public float delayDeployGuardianTimer;
     public List<GuardianTowerLevelData> towerLevelDataList;
 
 }
@@ -35,5 +35,5 @@ public class GuardianTowerLevelData {
     public float attackDamage;
     public float attackRange;
     public float attackSpeed;
-    public float RespawnTimer;
+    public float respawnTimer;
 }

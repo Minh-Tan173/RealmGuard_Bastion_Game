@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 1
   abilityName: Thunder Lightning
-  description: 
+  description: Summons instant lightning strikes at the selected location.
   prefab: {fileID: 1244444703942577085, guid: b0dea4e9af1530442835a8389b6b99e7, type: 3}
   iconPrefab: {fileID: 7719046608174368494, guid: 8da5b69e47eee8244a7f889391be2701, type: 3}
   canAttackLayer:

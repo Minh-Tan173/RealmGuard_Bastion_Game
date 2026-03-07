@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   abilityType: 3
   abilityName: Spike Trap
-  description: 
+  description: A trap placed on the path that damages enemies when stepped on.
   prefab: {fileID: 4609384064484379925, guid: 7e280935722bdb644ac24d800949897f, type: 3}
   iconPrefab: {fileID: 6052660063709094359, guid: 9a9cd694bf06fef4dbf110145e6c89f5, type: 3}
   canAttackLayer:

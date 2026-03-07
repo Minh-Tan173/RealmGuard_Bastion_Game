@@ -28,6 +28,7 @@ public class AbilityHubUI : MonoBehaviour, IHasAbilityStats
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private TextMeshProUGUI pointUsingText;
     [SerializeField] private TextMeshProUGUI currentLevelText;
+    [SerializeField] private TextMeshProUGUI unlockButtonText;
 
     [Header("Image Ability")]
     [SerializeField] private Image[] imageAbilityArray;
@@ -230,7 +231,13 @@ public class AbilityHubUI : MonoBehaviour, IHasAbilityStats
         Sequence spawnSequence = DOTween.Sequence();
 
         // 1. Setup khởi đầu
+        
         unlockButton.gameObject.SetActive(currentAbilityStats.isLocked);
+        if (unlockButton.gameObject.activeSelf) {
+
+            unlockButtonText.text = $"Unlock {SaveData.GetAbilityLevelDataByLevelAndType(currentAbilityStats.currentLevel, currentAbilityStats.abilityType).pointUnlock}P";
+        }
+
 
         mainHubRect.anchoredPosition = startPosMainHub;
         statusPanelRect.anchoredPosition = startPosStatusPanel;

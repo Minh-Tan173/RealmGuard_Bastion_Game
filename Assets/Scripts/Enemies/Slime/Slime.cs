@@ -345,4 +345,10 @@ public class Slime : BaseEnemy
         return this.canMove;
     }
 
+    private void OnDrawGizmos() {
+
+        BoxCollider2D boxCollider2D = GetComponent<BoxCollider2D>();
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube(this.transform.position + new Vector3(boxCollider2D.offset.x, boxCollider2D.offset.y, 0f), new Vector3(boxCollider2D.size.x, boxCollider2D.size.y, 0f));
+    }
 }

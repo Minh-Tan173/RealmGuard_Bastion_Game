@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerType: 3
   nameTower: Catapult Tower
-  description: asdfasdfgaasdf
+  description: 
   prefab: {fileID: 5525997062260903517, guid: b2ae57a883c62c545a7742e109a0b97d, type: 3}
   icon: {fileID: 8551092339147742886, guid: 3ff672ca77fbe824987025c6e3148472, type: 3}
   price: 800

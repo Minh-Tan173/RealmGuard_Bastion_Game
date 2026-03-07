@@ -11,11 +11,7 @@ public class GuardianTowerStats : MonoBehaviour
     [Header("Parent")]
     [SerializeField] private DataTowerUI dataTowerUI;
 
-    [Header("Soldier's Price")]
-    [SerializeField] private TextMeshProUGUI soldierCount;
-
     [Header("Status's Tower Text")]
-    [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI rangeText;
@@ -27,10 +23,27 @@ public class GuardianTowerStats : MonoBehaviour
     [SerializeField] private TextMeshProUGUI damageText;
     [SerializeField] private TextMeshProUGUI attackSpeedText;
     [SerializeField] private TextMeshProUGUI healthGuardianText;
+    [SerializeField] private TextMeshProUGUI moveSpeedText;
     [SerializeField] private TextMeshProUGUI respawnTimerText;
 
     private void Awake() {
+
         Instance = this;
+
+        dataTowerUI.UpdateLevelData += DataTowerUI_UpdateLevelData;
+    }
+
+    private void OnDestroy() {
+
+        dataTowerUI.UpdateLevelData -= DataTowerUI_UpdateLevelData;
+    }
+
+    private void DataTowerUI_UpdateLevelData(object sender, DataTowerUI.UpdateLevelDataEventArgs e) {
+        
+        if (e.towerType == ITowerObject.TowerType.GuardianTower) {
+
+            UpdateVisual();
+        }
     }
 
     public void UpdateVisual() {
@@ -51,11 +64,7 @@ public class GuardianTowerStats : MonoBehaviour
 
         }
 
-        // 1. Update count of guardian base on level
-        soldierCount.text = $"Count: {currentData.countOfGuardian}";
-
         // 2. Update Tower Data
-        priceText.text = $"{guardianTowerSO.price}$";
         healthText.text = $"{guardianTowerSO.healthTower}";
         levelText.text = $"{currentLevel}";
 
@@ -70,12 +79,12 @@ public class GuardianTowerStats : MonoBehaviour
 
         rangeText.text = $"{currentData.attackRange}";
         upgradeTimerText.text = $"{currentData.upgradeTimer}s";
-        fixedCostText.text = $"{guardianTowerSO.fixedCost}";
+        fixedCostText.text = $"{guardianTowerSO.fixedCost}$";
 
         // 3. Update Guardian Data
         damageText.text = $"{currentData.attackDamage}";
         attackSpeedText.text = $"{currentData.attackSpeed}";
         healthGuardianText.text = $"{currentData.healthOfGuardian}";
-        respawnTimerText.text = $"{currentData.RespawnTimer}s";
+        respawnTimerText.text = $"{currentData.respawnTimer}s";
     }
 }

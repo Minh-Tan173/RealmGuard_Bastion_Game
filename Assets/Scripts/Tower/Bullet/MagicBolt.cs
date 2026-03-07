@@ -65,7 +65,6 @@ public class MagicBolt : MonoBehaviour
 
         float maxSize = this.transform.localScale.x;
         float minSize = this.transform.localScale.x * (minScaleRate / 100f);
-       
 
         // 0. Before move 
         Vector3 startPoint = this.mageShooting.transform.position;
@@ -76,6 +75,11 @@ public class MagicBolt : MonoBehaviour
 
         enemyDetectedList.Clear();
         enemyAttackedHast.Clear();
+
+        float distanceToTargetOrigin = Vector3.Distance(startPoint, targetPosition);
+        float overshootDistance = 0.5f;
+        float totalRequiredDistance = distanceToTargetOrigin + overshootDistance;
+        float sqrTotalRequiredDistance = totalRequiredDistance * totalRequiredDistance;
 
         // 1. Couting angle of magicBolt
         Vector3 dirToTarget = (targetPosition - this.transform.position).normalized;
@@ -171,7 +175,15 @@ public class MagicBolt : MonoBehaviour
                 }
             }
 
+
             float movedDistance = (this.transform.position - startPoint).sqrMagnitude;
+
+            if (movedDistance > sqrTotalRequiredDistance) {
+                // If reached target position
+
+                break;  
+            }
+
             if (movedDistance > fartheastDistance * fartheastDistance) {
                 // If moved out side attackRange
 
@@ -188,6 +200,8 @@ public class MagicBolt : MonoBehaviour
     }
 
     public void StartMovement(Vector3 targetPosition, float timeToHitEnemy) {
+
+        
 
         if (currentCoroutine != null) {
             StopCoroutine(currentCoroutine);

@@ -11,11 +11,7 @@ public class CatapultTowerStats : MonoBehaviour
     [Header("Parent")]
     [SerializeField] private DataTowerUI dataTowerUI;
 
-    [Header("Price")]
-    [SerializeField] private TextMeshProUGUI soldierPrice;
-
     [Header("Status Tower Text")]
-    [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI rangeText;
@@ -25,7 +21,6 @@ public class CatapultTowerStats : MonoBehaviour
 
     [Header("Status Catapult Text")]
     [SerializeField] private TextMeshProUGUI damageText;
-    [SerializeField] private TextMeshProUGUI pebbleSpeed;
     [SerializeField] private TextMeshProUGUI pebblePerVolley;
     [SerializeField] private TextMeshProUGUI splashRadius;
     [SerializeField] private TextMeshProUGUI cdAttack;
@@ -35,6 +30,20 @@ public class CatapultTowerStats : MonoBehaviour
 
         Instance = this;
 
+        dataTowerUI.UpdateLevelData += DataTowerUI_UpdateLevelData;
+    }
+
+    private void OnDestroy() {
+
+        dataTowerUI.UpdateLevelData -= DataTowerUI_UpdateLevelData;
+    }
+
+    private void DataTowerUI_UpdateLevelData(object sender, DataTowerUI.UpdateLevelDataEventArgs e) {
+        
+        if (e.towerType == ITowerObject.TowerType.CatapultTower) {
+
+            UpdateVisual();
+        }
     }
 
     public void UpdateVisual() {
@@ -54,11 +63,8 @@ public class CatapultTowerStats : MonoBehaviour
 
         }
 
-        // 2. Update Price Catapult
-        soldierPrice.text = $"Default";
 
-        // 2. Update Tower Status
-        priceText.text = $"{catapultTowerSO.price}";
+        // 1. Update Tower Status
         healthText.text = $"{catapultTowerSO.healthTower}";
         levelText.text = $"{(int)currentLevel}";
 
@@ -68,16 +74,14 @@ public class CatapultTowerStats : MonoBehaviour
         }
         else {
             rangeText.text = $"{currentData.attackRange}";
-            upgradeCostText.text = $"{currentData.upgradeCost}";
+            upgradeCostText.text = $"{currentData.upgradeCost}$";
         }
 
         upgradeTimerText.text = $"{currentData.upgradeTimer}";
-
-        fixedCostText.text = $"{catapultTowerSO.fixedCost}";
+        fixedCostText.text = $"{catapultTowerSO.fixedCost}$";
 
         // 3. Update Soldier Status
         damageText.text = $"{currentData.attackDamage}";
-        pebbleSpeed.text = $"{currentData.pebbleSpeed}";
         pebblePerVolley.text = $"{currentData.pebbleSplashRadius}";
         splashRadius.text = $"{currentData.pebbleSplashRadius}";
         cdAttack.text = $"{currentData.recoilTimer}";

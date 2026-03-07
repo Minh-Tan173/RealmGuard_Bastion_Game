@@ -14,7 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerType: 1
   nameTower: Archer Tower
-  description: asdf
+  description: "Archer Tower is a basic attack tower where archers, with a 75\xB0
+    sweep angle, can accurately target all types of enemies \u2014 from ground units
+    and airborne threats to those advancing along the river. The consistent damage
+    from their sharp arrows helps you establish a solid defensive line from the very
+    first waves."
   prefab: {fileID: 752313141778257001, guid: 83c6511ae4153204e954ecb7c9bae690, type: 3}
   icon: {fileID: 8326344995449374781, guid: 11898263b96db8d4184a43ded7ebb045, type: 3}
   price: 200
@@ -36,8 +40,7 @@ MonoBehaviour:
     upgradeCost: 0
     attackDamage: 3
     attackRange: 0
-    arrowSpeed: 10
-    recoilTimer: 0.5
+    cooldownTimer: 0
     archerSpawnPos: {x: 0, y: 0, z: 0}
   - levelTower: 2
     currentSprite: {fileID: 177330258, guid: 42401fb2ffe1542448d85dabf8a991b1, type: 3}
@@ -45,8 +48,7 @@ MonoBehaviour:
     upgradeCost: 0
     attackDamage: 5
     attackRange: 3.5
-    arrowSpeed: 10
-    recoilTimer: 0.5
+    cooldownTimer: 0
     archerSpawnPos: {x: 0, y: 0.3, z: 0}
   - levelTower: 3
     currentSprite: {fileID: -954741149, guid: 875067a8305db274c9ab0e6644ff7c1a, type: 3}
@@ -54,8 +56,7 @@ MonoBehaviour:
     upgradeCost: 0
     attackDamage: 0
     attackRange: 0
-    arrowSpeed: 0
-    recoilTimer: 0
+    cooldownTimer: 0
     archerSpawnPos: {x: 0, y: 0, z: 0}
   - levelTower: 4
     currentSprite: {fileID: -35191567, guid: 5faecdf584e7de34caeb79352f3f9c8b, type: 3}
@@ -63,6 +64,6 @@ MonoBehaviour:
     upgradeCost: 0
     attackDamage: 0
     attackRange: 0
-    arrowSpeed: 0
-    recoilTimer: 0
+    cooldownTimer: 0
     archerSpawnPos: {x: 0, y: 0, z: 0}
+  arrowSpeed: 0

@@ -118,7 +118,7 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
         foreach (Guardian guardian in guardianList) {
 
             guardian.OnGuardianRequestTask -= Guardian_OnGuardianRequestTask;
-            guardian.GetGuardianLifeControl().OnDeath -= GuardianTower_OnDeath;
+            guardian.GetGuardianLifeControl().OnDeath -= Guardian_OnDeath;
 
         }
 
@@ -306,13 +306,14 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
 
             // Guardian Event Listener
             guardian.OnGuardianRequestTask += Guardian_OnGuardianRequestTask;
-            guardian.GetGuardianLifeControl().OnDeath += GuardianTower_OnDeath;
+            guardian.GetGuardianLifeControl().OnDeath += Guardian_OnDeath;
 
             currentGuardianCount += 1;
         }
     }
 
-    private void GuardianTower_OnDeath(object sender, EventArgs e) {
+    private void Guardian_OnDeath(object sender, EventArgs e) {
+
         currentAlive -= 1;
 
         if (currentAlive == 0) {
@@ -406,11 +407,10 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
 
         OnDeployPorgress?.Invoke(this, EventArgs.Empty);
 
-        yield return new WaitForSeconds(guardianTowerSO.deployGuardianTimer);
+        yield return new WaitForSeconds(guardianTowerSO.delayDeployGuardianTimer);
 
         // 0. Setup Data
         int currentActiveIndex = 0;
-        float spawnTimer = 0.4f;
         this.defaultRallyPos = FindNearestRallyPoint();
 
         currentCenterGuardPos = this.defaultRallyPos; // Cập nhật center guard pos hiện tại 
@@ -426,7 +426,7 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
 
             currentActiveIndex += 1;
 
-            yield return new WaitForSeconds(spawnTimer);
+            yield return new WaitForSeconds(currentTowerStatus.respawnTimer);
         }
 
         // After deploy all guardian

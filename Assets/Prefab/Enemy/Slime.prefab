@@ -118,6 +118,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1191457814926835721, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3874115721331869553, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
       propertyPath: m_EffectDistance.x
       value: 0.01
@@ -172,19 +176,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7152108760485663117, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
       propertyPath: m_Size.x
-      value: 0.47970474
+      value: 0.40980497
       objectReference: {fileID: 0}
     - target: {fileID: 7152108760485663117, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
       propertyPath: m_Size.y
-      value: 0.40927202
+      value: 0.32770908
       objectReference: {fileID: 0}
     - target: {fileID: 7152108760485663117, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
       propertyPath: m_Offset.x
-      value: -0.0121405125
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7152108760485663117, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
       propertyPath: m_Offset.y
-      value: -0.14765757
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7414320439302799143, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
       propertyPath: parentObject

@@ -12,29 +12,43 @@ public class MageTowerStats : MonoBehaviour
     [SerializeField] private DataTowerUI dataTowerUI;
 
     [Header("Price")]
-    [SerializeField] private TextMeshProUGUI soldierPrice;
 
     [Header("Status Tower Text")]
-    [SerializeField] private TextMeshProUGUI priceText;
     [SerializeField] private TextMeshProUGUI healthText;
     [SerializeField] private TextMeshProUGUI levelText;
     [SerializeField] private TextMeshProUGUI rangeText;
     [SerializeField] private TextMeshProUGUI upgradeTimerText;
     [SerializeField] private TextMeshProUGUI upgradeCostText;
+    [SerializeField] private TextMeshProUGUI fixedCostText;
 
     [Header("Status Mage Text")]
     [SerializeField] private TextMeshProUGUI viewAngleText;
     [SerializeField] private TextMeshProUGUI damageText;
-    //[SerializeField] private TextMeshProUGUI boltSpeed;
-    //[SerializeField] private TextMeshProUGUI boltSize;
     [SerializeField] private TextMeshProUGUI cdAttack;
 
     private void Awake() {
 
         Instance = this;
+
+        dataTowerUI.UpdateLevelData += DataTowerUI_UpdateLevelData;
+    }
+
+    private void OnDestroy() {
+
+        dataTowerUI.UpdateLevelData -= DataTowerUI_UpdateLevelData;
+    }
+
+    private void DataTowerUI_UpdateLevelData(object sender, DataTowerUI.UpdateLevelDataEventArgs e) {
+        
+        if (e.towerType == ITowerObject.TowerType.MageTower) {
+
+            UpdateVisual();
+        }
+
     }
 
     public void UpdateVisual() {
+
         // 1. Get Data 
         MageTowerSO mageTowerSO = dataTowerUI.GetCurrentTowerDictionary().towerSO as MageTowerSO;
         ITowerObject.LevelTower currentLevel = dataTowerUI.GetCurrentLevelIndex();
@@ -51,11 +65,7 @@ public class MageTowerStats : MonoBehaviour
 
         }
 
-        // 2. Update Price Mage
-        soldierPrice.text = $"{mageTowerSO.priceMage}";
-
-        // 2. Update Tower Status
-        priceText.text = $"{mageTowerSO.price}";
+        // 1. Update Tower Status
         healthText.text = $"{mageTowerSO.healthTower}";
         levelText.text = $"{(int)currentLevel}";
 
@@ -69,12 +79,11 @@ public class MageTowerStats : MonoBehaviour
         }
 
         upgradeTimerText.text = $"{currentData.upgradeTimer}";
+        fixedCostText.text = $"{mageTowerSO.fixedCost}$";
 
-        // 3. Update Soldier Status
+        // 2. Update Soldier Status
         viewAngleText.text = $"{mageTowerSO.viewAngle}";
         damageText.text = $"{currentData.attackDamage}";
-        //boltSpeed.text = $"{currentData.projectileSpeed}";
-        //boltSize.text = $"{currentData.projectileSize}";
         cdAttack.text = $"{currentData.recoilTimer}";
     }
 

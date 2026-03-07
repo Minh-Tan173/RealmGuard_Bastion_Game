@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -9,6 +10,12 @@ using UnityEngine.UI;
 public class DataTowerUI : MonoBehaviour
 {
 
+    public event EventHandler<UpdateLevelDataEventArgs> UpdateLevelData;
+    public class UpdateLevelDataEventArgs : EventArgs {
+        public ITowerObject.TowerType towerType;
+    }
+
+
     [Header("Button")]
     [SerializeField] private Button closeButton;
     [SerializeField] private Button nextTowerButton;
@@ -18,7 +25,9 @@ public class DataTowerUI : MonoBehaviour
 
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI nameTowerText;
-    [SerializeField] private TextMeshProUGUI towerDescription;
+    [SerializeField] private TextMeshProUGUI towerDescriptionText;
+    [SerializeField] private TextMeshProUGUI towerPriceText;
+    [SerializeField] private TextMeshProUGUI soldierPriceText;
 
     [Header("Main Hub Rect")]
     [SerializeField] private float startMainHubRect;
@@ -72,6 +81,7 @@ public class DataTowerUI : MonoBehaviour
     #endregion
 
     private void Awake() {
+
         canvasGroup = GetComponent<CanvasGroup>();
 
         currentTowerIndex = 0;
@@ -105,6 +115,7 @@ public class DataTowerUI : MonoBehaviour
                 targetPos -= nextStep;
 
                 ChangeTowerDictionaryByIndex(currentTowerIndex);
+                SwitchTowerData();
 
                 towerIconRect.LeanMoveLocal(targetPos, tweenTime).setEase(tweenType);
 
@@ -122,6 +133,7 @@ public class DataTowerUI : MonoBehaviour
                 targetPos += nextStep;
 
                 ChangeTowerDictionaryByIndex(currentTowerIndex);
+                SwitchTowerData();
 
                 towerIconRect.LeanMoveLocal(targetPos, tweenTime).setEase(tweenType);
 
@@ -138,7 +150,7 @@ public class DataTowerUI : MonoBehaviour
 
                 currentLevelIndex += 1;
 
-                UpdateVisual();
+                SwitchTowerLevelData();
             }
 
         });
@@ -150,8 +162,7 @@ public class DataTowerUI : MonoBehaviour
                 currentLevelIndex -= 1;
 
 
-
-                UpdateVisual();
+                SwitchTowerLevelData();
             }
 
         });
@@ -185,7 +196,7 @@ public class DataTowerUI : MonoBehaviour
         showSequence.OnComplete(() => {
 
             canvasGroup.interactable = true;
-            UpdateVisual();
+            SwitchTowerData();
         });
 
     }
@@ -218,7 +229,6 @@ public class DataTowerUI : MonoBehaviour
 
         currentLevelIndex = 1; // Mặc định khi đổi sang data về Tower khác thì bắt đầu từ level 1 (index 1)
 
-        UpdateVisual();
     }
 
     private TowerDictionary.TowerSprite GetSpriteByTowerLevel(ITowerObject.LevelTower levelTower) {
@@ -234,18 +244,18 @@ public class DataTowerUI : MonoBehaviour
 
         return new TowerDictionary.TowerSprite();
     }
-    
-    private void UpdateVisual() {
+
+    private void SwitchTowerData() {
 
         // 1. Update Title and Description
         nameTowerText.text = currentTowerDictionary.towerSO.nameTower;
 
         Sequence descriptionSequence = DOTween.Sequence();
-        towerDescription.text = "";
+        towerDescriptionText.text = "";
 
         string fullText = $"{currentTowerDictionary.towerSO.description}";
 
-        descriptionSequence.Append(DOTween.To(() => towerDescription.text, x => towerDescription.text = x, fullText, 0.2f).SetEase(Ease.Linear));
+        descriptionSequence.Append(DOTween.To(() => towerDescriptionText.text, x => towerDescriptionText.text = x, fullText, 0.2f).SetEase(Ease.Linear));
 
 
         // 2. Update Sprite
@@ -259,12 +269,28 @@ public class DataTowerUI : MonoBehaviour
             soldierImage.sprite = currentTowerSprite.soldierSprite;
         }
 
-        // 2. Update Data by Type
         SwitchStatsUI(currentTowerDictionary.towerType);
     }
 
+    private void SwitchTowerLevelData() {
+
+        TowerDictionary.TowerSprite currentTowerSprite = GetSpriteByTowerLevel((ITowerObject.LevelTower)currentLevelIndex);
+
+        currentTowerDictionary.towerImage.sprite = currentTowerSprite.towerSprite;
+
+        if (currentTowerSprite.soldierSprite != null) {
+            // If this level has new sprite of Soldier --> Update sprite
+
+            soldierImage.sprite = currentTowerSprite.soldierSprite;
+        }
+
+        // 2. Update Data by Type
+        SwitchStatsUI(currentTowerDictionary.towerType);
+
+    }
 
     private void SwitchStatsUI(ITowerObject.TowerType towerType) {
+
 
         isTWeening = true;
 
@@ -277,7 +303,11 @@ public class DataTowerUI : MonoBehaviour
             newTowerRect = archerTowerRect;
             newSoldierRect = archerRect;
 
-            ArcherTowerStats.Instance.UpdateVisual();
+            ArcherTowerSO archerTowerSO = currentTowerDictionary.towerSO as ArcherTowerSO;
+
+            // Update Price Text
+            towerPriceText.text = $"{archerTowerSO.price}$";
+            soldierPriceText.text = $"{archerTowerSO.priceArcher}$";
         }
 
         if (towerType == ITowerObject.TowerType.GuardianTower) {
@@ -285,22 +315,35 @@ public class DataTowerUI : MonoBehaviour
             newTowerRect = guardianTowerRect;
             newSoldierRect = guardianRect;
 
-            GuardianTowerStats.Instance.UpdateVisual();
+            GuardianTowerSO guardianTowerSO = currentTowerDictionary.towerSO as GuardianTowerSO;
+
+            // Update Price Text
+            towerPriceText.text = $"{guardianTowerSO.price}$";
+            soldierPriceText.text = $"Default";
         }
-        
+
         if (towerType == ITowerObject.TowerType.MageTower) {
 
             newTowerRect = mageTowerRect;
             newSoldierRect = mageRect;
 
-            MageTowerStats.Instance.UpdateVisual();
+            MageTowerSO mageTowerSO = currentTowerDictionary.towerSO as MageTowerSO;
+
+            // Update Price Text
+            towerPriceText.text = $"{mageTowerSO.price}$";
+            soldierPriceText.text = $"{mageTowerSO.priceMage}$";
         }
+
         if (towerType == ITowerObject.TowerType.CatapultTower) {
 
             newTowerRect = catapultTowerRect;
-            newSoldierRect = catapultRect; 
+            newSoldierRect = catapultRect;
 
-            CatapultTowerStats.Instance.UpdateVisual();
+            CatapultTowerSO catapultTowerSO = currentTowerDictionary.towerSO as CatapultTowerSO;
+
+            // Update Price Text
+            towerPriceText.text = $"{catapultTowerSO.price}$";
+            soldierPriceText.text = $"Default";
         }
 
         Sequence statstUIShowSequence = DOTween.Sequence();
@@ -311,13 +354,25 @@ public class DataTowerUI : MonoBehaviour
 
             statstUIShowSequence.Append(currentTowerStatsRect.DOAnchorPosX(startTowerRectXPos, duration).SetEase(Ease.InBack));
             statstUIShowSequence.Join(currentSoldierStatsRect.DOAnchorPosX(startSoldierRectXPos, duration).SetEase(Ease.InBack));
+
+            RectTransform oldTowerRect = currentTowerStatsRect;
+            RectTransform oldSoldierRect = currentSoldierStatsRect;
+
+            statstUIShowSequence.AppendCallback(() => {
+                oldTowerRect.gameObject.SetActive(false);
+                oldSoldierRect.gameObject.SetActive(false);
+            });
         }
+
+        currentTowerStatsRect = newTowerRect;
+        currentSoldierStatsRect = newSoldierRect;
 
         statstUIShowSequence.AppendCallback(() => {
 
-            currentTowerStatsRect = newTowerRect;
-            currentSoldierStatsRect = newSoldierRect;
+            // 1. Update data base on current type
+            UpdateLevelData?.Invoke(this, new UpdateLevelDataEventArgs { towerType = towerType });
 
+            // 2. Update visual rect
             currentTowerStatsRect.gameObject.SetActive(true);
             currentSoldierStatsRect.gameObject.SetActive(true);
         });

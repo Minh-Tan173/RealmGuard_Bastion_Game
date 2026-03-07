@@ -14,7 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   towerType: 2
   nameTower: Mage Tower
-  description: qwejfnsajdlhfqowherqhweedjfhnjk
+  description: "Mage Tower is a precision attack tower where mages, with a 90\xB0
+    vision, unleash Magic Bolts using Growing Pierce Strategy\u2014piercing straight
+    through multiple enemies with escalating damage. It is effective against linear
+    enemy formation in 3 different forms: Ground, Sky, and River."
   prefab: {fileID: 6549162449638547725, guid: 5d279d707060b9b4ba1b57807d84390f, type: 3}
   icon: {fileID: 1995947485458168286, guid: 6c1164f0d85e091408d59651f0791312, type: 3}
   price: 400
