@@ -44,7 +44,7 @@ public class TowerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
         towerIntroductionUI.transform.gameObject.SetActive(false);
 
-        LevelManager.Instance.UnLockTowerButton += LevelManager_UnLockTowerButton;
+        LevelManager.Instance.UnlockTowerButton += LevelManager_UnlockTowerButton;
 
         // Update Tower Price Text
         towerPriceText.text = $"{TowerManager.Instance.GetTowerSOByType(towerType).price}$";
@@ -62,10 +62,10 @@ public class TowerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
     private void OnDestroy() {
 
-        LevelManager.Instance.UnLockTowerButton -= LevelManager_UnLockTowerButton;
+        LevelManager.Instance.UnlockTowerButton -= LevelManager_UnlockTowerButton;
     }
 
-    private void LevelManager_UnLockTowerButton(object sender, LevelManager.UnLockTowerButtonEventArgs e) {
+    private void LevelManager_UnlockTowerButton(object sender, LevelManager.UnLockTowerButtonEventArgs e) {
 
         if (this.towerType == e.towerType) {
             // Unlock this button

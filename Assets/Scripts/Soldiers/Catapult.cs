@@ -484,7 +484,7 @@ public class Catapult : MonoBehaviour
         }
 
         // 3. After attack behavior
-        nextAllowedAttackTimer = Time.time + currentStatus.recoilTimer;
+        nextAllowedAttackTimer = Time.time + currentStatus.cooldownTimer;
 
         yield return new WaitForSeconds(0.5f); // Wait for end of Attack Anim
 
@@ -510,7 +510,7 @@ public class Catapult : MonoBehaviour
 
         float maxRangeMove = catapultTower.GetCurrentAttackRange();
         float pebbleSpeed = catapultTower.GetCurrentTowerStatus().pebbleSpeed;
-        float attackTimer = catapultTower.GetCurrentTowerStatus().recoilTimer;
+        float attackTimer = catapultTower.GetCurrentTowerStatus().cooldownTimer;
         int pebblePerVolley = catapultTower.GetCurrentTowerStatus().pebblePerVolley; // số lượng pebble dùng mỗi lần attack
 
         int buffer = 3; // Phần pebble dôi ra thêm để đảm bảo số lượng

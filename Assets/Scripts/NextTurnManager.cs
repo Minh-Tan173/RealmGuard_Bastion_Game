@@ -1,18 +1,24 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NextTurnManager : MonoBehaviour
+public class NextTurnManager : MonoBehaviour, IHasProgressBar
 {
     public static NextTurnManager Instance { get; private set; }
 
     public event EventHandler OnNextTurn;
+    public event EventHandler<IHasProgressBar.OnChangeProgressEventArgs> OnChangeProgress;
 
     [SerializeField] private Button nextTurnButton;
+    [SerializeField] private float nextTurnTimerMax;
 
     private int currentAlivesEnemy;
+
+    private Coroutine currentCoroutine;
+    private bool canClickedButton = false;
 
     private void Awake() {
 
@@ -20,11 +26,12 @@ public class NextTurnManager : MonoBehaviour
 
         nextTurnButton.onClick.AddListener(() => {
 
-            currentAlivesEnemy = 0;
+            if (currentCoroutine != null) {
+                StopCoroutine(currentCoroutine);
+                currentCoroutine = null;
+            }
 
-            OnNextTurn?.Invoke(this, EventArgs.Empty);
-
-            Hide();
+            NextTurn();
         });
     }
 
@@ -37,7 +44,7 @@ public class NextTurnManager : MonoBehaviour
         BaseEnemy.OnActiveEnemy += BaseEnemy_OnActiveEnemy;
         BaseEnemy.UnActiveEnemy += BaseEnemy_UnActiveEnemy;
 
-        Hide();
+        this.gameObject.SetActive(false);
     }
 
     private void OnDestroy() {
@@ -58,6 +65,7 @@ public class NextTurnManager : MonoBehaviour
         currentAlivesEnemy -= 1;
 
         // Check End Wave condition
+
         TryEndTurn();
 
     }
@@ -69,24 +77,78 @@ public class NextTurnManager : MonoBehaviour
     }
 
     private void PathGenerator_PathVisualShowAll(object sender, System.EventArgs e) {
+        // After Path created done --> Set nextTurnManager pos
 
-        // After Path created done
-        this.transform.position = PathGenerator.Instance.GetWaypointList()[0].transform.position;
+        Vector3 firstWaypointPos = PathGenerator.Instance.GetWaypointList()[0].transform.position;
+        this.transform.position = new Vector3(firstWaypointPos.x, firstWaypointPos.y - 1.5f, firstWaypointPos.z);
         
     }
 
     private void LevelManager_EndTurn(object sender, System.EventArgs e) {
 
-        Show();
-
-    }
-
-    private void Show() {
         this.gameObject.SetActive(true);
+
+        if (currentCoroutine != null) {
+            StopCoroutine(currentCoroutine);    
+            currentCoroutine = null;    
+        }
+
+        currentCoroutine = StartCoroutine(ChangedToNextTurnCoroutine());
+
     }
 
-    private void Hide() {
-        this.gameObject.SetActive(false);
+    private IEnumerator ChangedToNextTurnCoroutine() {
+
+        canClickedButton = false;
+
+        // 1. Show button anim
+        RectTransform nextTurnButtonRect = nextTurnButton.GetComponent<RectTransform>();
+        nextTurnButtonRect.localScale = Vector3.zero;
+        
+
+        OnChangeProgress?.Invoke(this, new IHasProgressBar.OnChangeProgressEventArgs { progressNormalized = 0f });
+
+        float duration = 0.3f;
+        Sequence showScaleSequence = DOTween.Sequence();
+
+        showScaleSequence.Append(nextTurnButtonRect.DOScale(Vector3.one, duration).SetEase(Ease.OutBack));
+
+        yield return showScaleSequence.WaitForCompletion();
+
+        // 2. Next turn progress
+
+        canClickedButton = true;
+        float nextTurnTimer = 0f;
+        while (nextTurnTimer <= nextTurnTimerMax) {
+
+            float smoothT = Mathf.SmoothStep(0f, 1f, Mathf.Clamp01(nextTurnTimer / nextTurnTimerMax));
+
+            OnChangeProgress?.Invoke(this, new IHasProgressBar.OnChangeProgressEventArgs { progressNormalized = smoothT });
+
+            nextTurnTimer += Time.deltaTime;
+
+            yield return null;
+        }
+
+        OnChangeProgress?.Invoke(this, new IHasProgressBar.OnChangeProgressEventArgs { progressNormalized = 1f });
+
+        NextTurn();
+    }
+
+    private void NextTurn() {
+
+        currentAlivesEnemy = 0;
+
+        OnNextTurn?.Invoke(this, EventArgs.Empty);
+
+        canClickedButton = false;
+        RectTransform nextTurnButtonRect = nextTurnButton.GetComponent<RectTransform>();
+
+        float duration = 0.3f;
+        nextTurnButtonRect.DOScale(Vector3.zero, duration).OnComplete(() => {
+
+            this.gameObject.SetActive(false);
+        });
     }
 
     public void TryEndTurn() {

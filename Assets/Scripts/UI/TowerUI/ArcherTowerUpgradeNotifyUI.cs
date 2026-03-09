@@ -15,6 +15,8 @@ public class ArcherTowerUpgradeNotifyUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI newAttackDamageValueText;
     [SerializeField] private TextMeshProUGUI oldAttackRangeValueText;
     [SerializeField] private TextMeshProUGUI newAttackRangeValueText;
+    [SerializeField] private TextMeshProUGUI oldCooldownValueText;
+    [SerializeField] private TextMeshProUGUI newCooldownValueText;
 
 
     [Header("Dotween")]
@@ -57,10 +59,10 @@ public class ArcherTowerUpgradeNotifyUI : MonoBehaviour
         Show();
         UpdateVisual();
 
-        ShowCoroutine();
+        ShowAnim();
     }
 
-    private void ShowCoroutine() {
+    private void ShowAnim() {
 
 
         float waitTimer = 1.5f;
@@ -109,6 +111,11 @@ public class ArcherTowerUpgradeNotifyUI : MonoBehaviour
         oldAttackRangeValueText.text = $"{oldAttackRangeValue}";
         newAttackRangeValueText.text = $"{currentLevelData.attackRange}";
 
+
+        // 3. Cooldown
+        oldCooldownValueText.text = $"{oldLevelData.cooldownTimer}";
+        newCooldownValueText.text = $"{currentLevelData.cooldownTimer}";
+        
     }
 
     private void Show() {

@@ -84,7 +84,7 @@ public class CatapultTowerStats : MonoBehaviour
         damageText.text = $"{currentData.attackDamage}";
         pebblePerVolley.text = $"{currentData.pebbleSplashRadius}";
         splashRadius.text = $"{currentData.pebbleSplashRadius}";
-        cdAttack.text = $"{currentData.recoilTimer}";
+        cdAttack.text = $"{currentData.cooldownTimer}";
     }
 
 }

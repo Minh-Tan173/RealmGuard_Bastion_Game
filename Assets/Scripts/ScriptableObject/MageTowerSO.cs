@@ -40,7 +40,7 @@ public class MageTowerLevelData {
     [Header("Status")]
     public float attackDamage;
     public float attackRange;
-    public float recoilTimer;
+    public float cooldownTimer;
     public Vector3 mageSpawnPos;
 
 }

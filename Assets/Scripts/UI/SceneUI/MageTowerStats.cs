@@ -84,7 +84,7 @@ public class MageTowerStats : MonoBehaviour
         // 2. Update Soldier Status
         viewAngleText.text = $"{mageTowerSO.viewAngle}";
         damageText.text = $"{currentData.attackDamage}";
-        cdAttack.text = $"{currentData.recoilTimer}";
+        cdAttack.text = $"{currentData.cooldownTimer}";
     }
 
 }

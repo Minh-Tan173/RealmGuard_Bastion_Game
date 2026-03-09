@@ -159,6 +159,8 @@ public class EnemyIntroductionUI : BaseIntroductionUI, IHasPadLock
 
         actionCallback?.Invoke();
 
+        LevelManager.Instance.SetIsShowingEnemyIntroductionUI(false);
+
         Destroy(this.gameObject);
 
     }

@@ -281,7 +281,7 @@ public class Mage : MonoBehaviour
             ChangeMageBehaviorTo(MageBehavior.Idle);
             isForcedReAim = true;
 
-            nextAllowedAttackTimer = Time.time + mageTower.GetCurrentTowerStatus().recoilTimer;
+            nextAllowedAttackTimer = Time.time + mageTower.GetCurrentTowerStatus().cooldownTimer;
 
 
             yield break;
@@ -311,7 +311,7 @@ public class Mage : MonoBehaviour
         currentMagicBoltIndex = (currentMagicBoltIndex + 1) % magicBoltList.Count;
 
         // 3. After attack behavior
-        nextAllowedAttackTimer = Time.time + mageTower.GetCurrentTowerStatus().recoilTimer;
+        nextAllowedAttackTimer = Time.time + mageTower.GetCurrentTowerStatus().cooldownTimer;
         ChangeMageBehaviorTo(MageBehavior.PreAttack);
 
     }
@@ -333,7 +333,7 @@ public class Mage : MonoBehaviour
 
         float maxRangeMove = mageTower.GetCurrentAttackRange();
         float projectileSpeed = mageTower.GetMageTowerSO().magicBoltSpeed;
-        float attackTimer = mageTower.GetCurrentTowerStatus().recoilTimer;
+        float attackTimer = mageTower.GetCurrentTowerStatus().cooldownTimer;
 
         int buffer = 3; // Phần projectile dôi ra thêm để đảm bảo số lượng
 

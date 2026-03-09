@@ -17,7 +17,7 @@ public class LevelManager : MonoBehaviour
 
     }
 
-    public event EventHandler<UnLockTowerButtonEventArgs> UnLockTowerButton;
+    public event EventHandler<UnLockTowerButtonEventArgs> UnlockTowerButton;
     public class UnLockTowerButtonEventArgs : EventArgs {
         public ITowerObject.TowerType towerType;
     }
@@ -46,6 +46,8 @@ public class LevelManager : MonoBehaviour
 
     private bool isFirstStart;
     private bool isGamePaused;
+
+    private bool isShowingEnemyIntroductionUI = false;
 
     private void Awake() {
 
@@ -126,11 +128,15 @@ public class LevelManager : MonoBehaviour
             // If this wave has a new enemy and hasnt introduced this enemy before
 
             EnemyIntroductionUI.SpawnEnemyIntroductionUI(currentWaveScript.newEnemy, SceneUIManager.Instance.transform, HandleIntroduceNewTower);
+
+            SetIsShowingEnemyIntroductionUI(true);
         }
         else if (currentWaveScript.newEnemyAnomaly != null && !SaveData.IsUnlockAnomaly(currentWaveScript.newEnemyAnomaly)) {
             // If this wave has unlocked new anomaly of enemy
 
             EnemyIntroductionUI.SpawnEnemyIntroductionUI(currentWaveScript.newEnemyAnomaly, SceneUIManager.Instance.transform, HandleIntroduceNewTower);
+
+            SetIsShowingEnemyIntroductionUI(true);
         }
         else {
             // If dont have new enemy to Introduce or Unlock Anomaly --> Check if have Introduce new Tower
@@ -146,7 +152,7 @@ public class LevelManager : MonoBehaviour
 
             SaveData.UnlockNewTower(levelManagerSO.newTower);
 
-            UnLockTowerButton?.Invoke(this, new UnLockTowerButtonEventArgs { towerType = levelManagerSO.newTower});
+            UnlockTowerButton?.Invoke(this, new UnLockTowerButtonEventArgs { towerType = levelManagerSO.newTower});
 
             isFirstStart = false;
         }
@@ -242,6 +248,11 @@ public class LevelManager : MonoBehaviour
 
     public void ToggleGamePause() {
 
+        if (isShowingEnemyIntroductionUI) {
+            // Cant toggle GamePauseUI when is showing enemy introduction UI
+            return;
+        }
+
         isGamePaused = !isGamePaused;
 
         if (isGamePaused) {
@@ -306,5 +317,9 @@ public class LevelManager : MonoBehaviour
 
     public bool IsNotSetUpGame() {
         return this.currentLevelState != LevelState.StartGame;
+    }
+
+    public void SetIsShowingEnemyIntroductionUI(bool isShowing) {
+        this.isShowingEnemyIntroductionUI = isShowing;
     }
 }

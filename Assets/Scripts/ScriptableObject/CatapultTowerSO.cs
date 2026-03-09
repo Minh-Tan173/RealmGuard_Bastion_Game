@@ -31,6 +31,6 @@ public class CatapultTowerLevelData {
     public float pebbleSpeed;
     public int pebblePerVolley;
     public float pebbleSplashRadius;
-    public float recoilTimer;
+    public float cooldownTimer;
     public Vector3 catapulSpawnPos;
 }

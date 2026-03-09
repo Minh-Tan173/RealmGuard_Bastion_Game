@@ -8,11 +8,13 @@ public class MageTowerUpgradeNotifyUI : MonoBehaviour
 {
     [SerializeField] private MageTower mageTower;
 
-    //[Header("Text")]
-    //[SerializeField] private TextMeshProUGUI oldAttackDamageValueText;
-    //[SerializeField] private TextMeshProUGUI newAttackDamageValueText;
-    //[SerializeField] private TextMeshProUGUI oldAttackRangeValueText;
-    //[SerializeField] private TextMeshProUGUI newAttackRangeValueText;
+    [Header("Text")]
+    [SerializeField] private TextMeshProUGUI oldAttackDamageValueText;
+    [SerializeField] private TextMeshProUGUI newAttackDamageValueText;
+    [SerializeField] private TextMeshProUGUI oldAttackRangeValueText;
+    [SerializeField] private TextMeshProUGUI newAttackRangeValueText;
+    [SerializeField] private TextMeshProUGUI oldCooldownValueText;
+    [SerializeField] private TextMeshProUGUI newCooldownValueText;
 
 
     [Header("Dotween")]
@@ -34,7 +36,7 @@ public class MageTowerUpgradeNotifyUI : MonoBehaviour
 
     private void Start() {
 
-        mageTower.UnUpgradeLevelProgress += ArcherTower_UnUpgradeLevelProgress;
+        mageTower.UnUpgradeLevelProgress += MageTower_UnUpgradeLevelProgress;
 
 
         // After Spawn
@@ -42,10 +44,10 @@ public class MageTowerUpgradeNotifyUI : MonoBehaviour
     }
 
     private void OnDestroy() {
-        mageTower.UnUpgradeLevelProgress -= ArcherTower_UnUpgradeLevelProgress;
+        mageTower.UnUpgradeLevelProgress -= MageTower_UnUpgradeLevelProgress;
     }
 
-    private void ArcherTower_UnUpgradeLevelProgress(object sender, System.EventArgs e) {
+    private void MageTower_UnUpgradeLevelProgress(object sender, System.EventArgs e) {
         // After Upgrade Progress done
 
         if (mageTower.GetCurrentTowerStatus().levelTower == ITowerObject.LevelTower.Level1) {
@@ -85,27 +87,32 @@ public class MageTowerUpgradeNotifyUI : MonoBehaviour
 
     private void UpdateVisual() {
 
-        //MageTowerLevelData currentLevelData = mageTower.GetCurrentTowerStatus();
-        //MageTowerLevelData oldLevelData = mageTower.GetArcherTowerDataDict()[(ITowerObject.LevelTower)((int)currentLevelData.levelTower - 1)];
+        MageTowerLevelData currentLevelData = mageTower.GetCurrentTowerStatus();
+        MageTowerLevelData oldLevelData = mageTower.GetMageTowerDataDict()[(ITowerObject.LevelTower)((int)currentLevelData.levelTower - 1)];
 
 
-        //// 1. Attack damage
-        //oldAttackDamageValueText.text = $"{oldLevelData.attackDamage}";
-        //newAttackDamageValueText.text = $"{currentLevelData.attackDamage}";
+        // 1. Attack damage
+        oldAttackDamageValueText.text = $"{oldLevelData.attackDamage}";
+        newAttackDamageValueText.text = $"{currentLevelData.attackDamage}";
 
-        //// 2. Attack range
-        //float oldAttackRangeValue;
+        // 2. Attack range
+        float oldAttackRangeValue;
 
-        //if (oldLevelData.levelTower == ITowerObject.LevelTower.Level1) {
+        if (oldLevelData.levelTower == ITowerObject.LevelTower.Level1) {
 
-        //    oldAttackRangeValue = mageTower.GetArcherTowerSO().baseRange;
-        //}
-        //else {
-        //    oldAttackRangeValue = oldLevelData.attackRange;
-        //}
+            oldAttackRangeValue = mageTower.GetMageTowerSO().baseRange;
+        }
+        else {
+            oldAttackRangeValue = oldLevelData.attackRange;
+        }
 
-        //oldAttackRangeValueText.text = $"{oldAttackRangeValue}";
-        //newAttackRangeValueText.text = $"{currentLevelData.attackRange}";
+        oldAttackRangeValueText.text = $"{oldAttackRangeValue}";
+        newAttackRangeValueText.text = $"{currentLevelData.attackRange}";
+
+        // 3. Cooldown
+        oldCooldownValueText.text = $"{oldLevelData.cooldownTimer}";
+        newCooldownValueText.text = $"{currentLevelData.cooldownTimer}";
+
 
     }
 

@@ -694,6 +694,10 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
         return this.guardianTowerUI;
     }
 
+    public Dictionary<ITowerObject.LevelTower, GuardianTowerLevelData> GetGuardianTowerDataDict() {
+        return this.guardianTowerDataDict;
+    }
+
     public Vector3 GetCurrentCenterGuardPos() {
         return this.currentCenterGuardPos;
     }

@@ -492,6 +492,10 @@ public class MageTower : BaseTower, IHasClockTimer, ITowerObject
         return this.mageTowerUI;
     }
 
+    public Dictionary<ITowerObject.LevelTower, MageTowerLevelData> GetMageTowerDataDict() {
+        return this.mageTowerDataDict;
+    }
+
     public bool IsUpgrading() {
         return this.isUpgrading;
     }
