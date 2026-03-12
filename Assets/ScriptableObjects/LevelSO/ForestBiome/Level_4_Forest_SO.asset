@@ -10,22 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e5d5d1ebc2075d148845d153e596b161, type: 3}
-  m_Name: Level_1_Forest_SO_Test
+  m_Name: Level_4_Forest_SO
   m_EditorClassIdentifier: 
   gameMode: 0
   biomeType: 1
-  gameLevel: 1
+  gameLevel: 3
   startGameTimer: 1
   endTurnTimer: 1
-  coinStart: 300000
-  numberOfHeart: 100
+  coinStart: 1200
+  numberOfHeart: 20
   waveScriptList:
-  - waveName: Wave_1
-    enemyGroupList:
-    - enemyTypeSO: {fileID: 11400000, guid: 54b95068ea5cb9346b3cb6477bd61b50, type: 2}
-      numberEnemy: 1
-      cdSpawnTimer: 1
+  - waveName: 
+    enemyGroupList: []
     newEnemy: {fileID: 0}
     newEnemyAnomaly: {fileID: 0}
-  newTower: 4
+  - waveName: 
+    enemyGroupList: []
+    newEnemy: {fileID: 0}
+    newEnemyAnomaly: {fileID: 0}
+  - waveName: 
+    enemyGroupList: []
+    newEnemy: {fileID: 0}
+    newEnemyAnomaly: {fileID: 0}
+  newTower: 2
   pointGetWhenWin: 1

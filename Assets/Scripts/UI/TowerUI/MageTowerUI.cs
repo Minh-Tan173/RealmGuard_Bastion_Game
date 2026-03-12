@@ -22,11 +22,10 @@ public class MageTowerUI : MonoBehaviour, IHasFunctionButton
     [SerializeField] private Button fixButton;
     [SerializeField] private Button changeTypeButton;
 
-    [Header("Text")]
+    [Header("GroundText")]
     [SerializeField] private TextMeshProUGUI typeNameText;
-    [SerializeField] private string groundTypeName;
-    [SerializeField] private string skyTypeName;
-    [SerializeField] private string riverTypeName;
+    [SerializeField] private TextMeshProUGUI upgradeCostText;
+    [SerializeField] private TextMeshProUGUI fixedCostText;
 
     [Header("UI")]
     [SerializeField] private Transform buyMageUIPrefab;
@@ -37,14 +36,16 @@ public class MageTowerUI : MonoBehaviour, IHasFunctionButton
     [SerializeField] float tweenTime;
     [SerializeField] LeanTweenType tweenType;
 
+    private const string GROUND_TYPE_NAME = "GROUND";
+    private const string SKY_TYPE_NAME = "SKY";
+    private const string RIVER_TYPE_NAME = "RIVER";
+
     private BuyMageUI buyMageUI;
 
     private int currentPage = 0;
     private int totalPage;
     private Vector3 nextStep;
     private Vector3 targetPos;
-
-
 
     private void Awake() {
 
@@ -168,15 +169,17 @@ public class MageTowerUI : MonoBehaviour, IHasFunctionButton
     private void UpdateVisual() {
 
         if (mageTower.GetCurrentMageType() == MageTowerSO.MageType.Ground) {
-            typeNameText.text = $"{groundTypeName}";
+            typeNameText.text = $"{GROUND_TYPE_NAME}";
         }
         else if (mageTower.GetCurrentMageType() == MageTowerSO.MageType.Sky) {
-            typeNameText.text = $"{skyTypeName}";
+            typeNameText.text = $"{SKY_TYPE_NAME}";
         }
         else if (mageTower.GetCurrentMageType() == MageTowerSO.MageType.River){
-            typeNameText.text = $"{riverTypeName}";
+            typeNameText.text = $"{RIVER_TYPE_NAME}";
         }
 
+        upgradeCostText.text = $"{mageTower.GetCurrentTowerStatus().upgradeCost}$";
+        fixedCostText.text = $"{mageTower.GetMageTowerSO().fixedCost}$";
     }
 
     private void HideUI() {

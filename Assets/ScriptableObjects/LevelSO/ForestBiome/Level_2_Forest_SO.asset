@@ -17,31 +17,59 @@ MonoBehaviour:
   gameLevel: 2
   startGameTimer: 1
   endTurnTimer: 1
-  coinStart: 300000
-  numberOfHeart: 100
+  coinStart: 1000
+  numberOfHeart: 20
   waveScriptList:
-  - waveName: Wave_1
+  - waveName: Wave 1
     enemyGroupList:
-    - enemyTypeSO: {fileID: 11400000, guid: b8cd50520d969244ca50ddea31ec3638, type: 2}
-      numberEnemy: 10
-      cdSpawnTimer: 0.5
-    newEnemy: {fileID: 11400000, guid: b8cd50520d969244ca50ddea31ec3638, type: 2}
-  - waveName: Wave_2
-    enemyGroupList:
-    - enemyTypeSO: {fileID: 11400000, guid: b8cd50520d969244ca50ddea31ec3638, type: 2}
-      numberEnemy: 20
-      cdSpawnTimer: 0.5
+    - enemyTypeSO: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
+      numberEnemy: 15
+      cdSpawnTimer: 1.5
     newEnemy: {fileID: 0}
-  - waveName: Wave_3
+    newEnemyAnomaly: {fileID: 0}
+  - waveName: Wave 2
     enemyGroupList:
-    - enemyTypeSO: {fileID: 11400000, guid: b8cd50520d969244ca50ddea31ec3638, type: 2}
+    - enemyTypeSO: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
+      numberEnemy: 18
+      cdSpawnTimer: 1.5
+    newEnemy: {fileID: 0}
+    newEnemyAnomaly: {fileID: 0}
+  - waveName: Wave 3
+    enemyGroupList:
+    - enemyTypeSO: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
       numberEnemy: 20
-      cdSpawnTimer: 0.5
+      cdSpawnTimer: 1.5
+    newEnemy: {fileID: 0}
+    newEnemyAnomaly: {fileID: 0}
+  - waveName: Wave 4
+    enemyGroupList:
+    - enemyTypeSO: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
+      numberEnemy: 20
+      cdSpawnTimer: 1.5
     - enemyTypeSO: {fileID: 11400000, guid: fc2a35ba1fcc4a041abc337dd0c83ffe, type: 2}
-      numberEnemy: 10
-      cdSpawnTimer: 1
+      numberEnemy: 5
+      cdSpawnTimer: 2
     newEnemy: {fileID: 11400000, guid: fc2a35ba1fcc4a041abc337dd0c83ffe, type: 2}
-  towerTypeArray: 01000000
-  newTower: 1
-  abilityTypeArray: 
+    newEnemyAnomaly: {fileID: 0}
+  - waveName: Wave 5
+    enemyGroupList:
+    - enemyTypeSO: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
+      numberEnemy: 20
+      cdSpawnTimer: 1.5
+    - enemyTypeSO: {fileID: 11400000, guid: fc2a35ba1fcc4a041abc337dd0c83ffe, type: 2}
+      numberEnemy: 9
+      cdSpawnTimer: 2
+    newEnemy: {fileID: 0}
+    newEnemyAnomaly: {fileID: 0}
+  - waveName: Wave 6
+    enemyGroupList:
+    - enemyTypeSO: {fileID: 11400000, guid: fc2a35ba1fcc4a041abc337dd0c83ffe, type: 2}
+      numberEnemy: 12
+      cdSpawnTimer: 1.5
+    - enemyTypeSO: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
+      numberEnemy: 15
+      cdSpawnTimer: 2
+    newEnemy: {fileID: 0}
+    newEnemyAnomaly: {fileID: 11400000, guid: fc2a35ba1fcc4a041abc337dd0c83ffe, type: 2}
+  newTower: 4
   pointGetWhenWin: 1

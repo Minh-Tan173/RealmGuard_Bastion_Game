@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -14,6 +15,9 @@ public class BuyMageUI : MonoBehaviour, IHasFunctionButton
     [SerializeField] private Button rightArrowButton;
     [SerializeField] private Button downArrowButton;
     [SerializeField] private Button leftArrowButton;
+
+    [Header("Text")]
+    [SerializeField] private List<TextMeshProUGUI> priceTextList;
 
     private MageTower mageTower;
     private MageTowerUI mageTowerUI;
@@ -151,8 +155,9 @@ public class BuyMageUI : MonoBehaviour, IHasFunctionButton
 
         }
 
-
-
+        foreach (TextMeshProUGUI priceText in priceTextList) {
+            priceText.text = $"{this.mageTower.GetMageTowerSO().priceMage}$";
+        }
     }
 
     public static BuyMageUI SpawnBuyMageUI(Transform buyMageUIPrefab, Transform parent) {

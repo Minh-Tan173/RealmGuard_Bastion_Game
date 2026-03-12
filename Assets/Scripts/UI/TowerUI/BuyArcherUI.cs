@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
@@ -15,6 +16,9 @@ public class BuyArcherUI : MonoBehaviour, IHasFunctionButton
     [SerializeField] private Button rightArrowButton;
     [SerializeField] private Button downArrowButton;
     [SerializeField] private Button leftArrowButton;
+
+    [Header("Text")]
+    [SerializeField] private List<TextMeshProUGUI> priceTextList;
 
     private ArcherTower archerTower;
     private ArcherTowerUI archerTowerUI;
@@ -152,8 +156,9 @@ public class BuyArcherUI : MonoBehaviour, IHasFunctionButton
 
         }
 
-
-
+        foreach (TextMeshProUGUI priceText in priceTextList) {
+            priceText.text = $"{this.archerTower.GetArcherTowerSO().priceArcher}$";
+        }
     }
 
     public static BuyArcherUI SpawnBuyArcherUI(Transform buyArcherUIPrefab, Transform parent) {

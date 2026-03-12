@@ -17,8 +17,9 @@ MonoBehaviour:
     early, it can slip past your defenses and strike your base before you have time
     to react.
   anomalyDescription: 
+  enemyPrice: 25
   totalHealth: 4
-  moveSpeed: 2.2
+  moveSpeed: 3
   radiusOffset: 0.5
   detectedZone: 0
   attackDamage: 0

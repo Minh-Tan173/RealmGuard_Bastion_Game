@@ -54,7 +54,6 @@ public class LevelButton : MonoBehaviour {
         buttonTransform.transform.position = levelAnchorPoint.transform.position;
 
         LevelButton levelButton = buttonTransform.GetComponent<LevelButton>();
-
         levelButton.levelData = levelAnchorPoint.GetLevelData();
 
         return levelButton;

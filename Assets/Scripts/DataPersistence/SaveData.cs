@@ -25,7 +25,7 @@ public static class SaveData
     public static Dictionary<string, EnemyStatus> enemiesStatusDict = new Dictionary<string, EnemyStatus>();
 
     public static float defaultVolume = 1f;
-    public static int defaultPoint = 1000;
+    public static int defaultPoint = 0;
 
     #region First Time access game and New Game
     public static void InitializeIfFirstTime(GameDataTemplateSO gameDataTemplateSO) {

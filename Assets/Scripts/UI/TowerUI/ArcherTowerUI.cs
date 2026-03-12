@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,6 +22,10 @@ public class ArcherTowerUI : MonoBehaviour, IHasFunctionButton {
     [SerializeField] private Button buyArcherButton;
     [SerializeField] private Button sellButton;
     [SerializeField] private Button fixButton;
+
+    [Header("Text")]
+    [SerializeField] private TextMeshProUGUI upgradeCostText;
+    [SerializeField] private TextMeshProUGUI fixedCostText;
 
     [Header("UI")]
     [SerializeField] private Transform buyArcherUIPrefab;
@@ -114,11 +119,19 @@ public class ArcherTowerUI : MonoBehaviour, IHasFunctionButton {
 
     }
 
+    private void UpdateVisual() {
+
+        upgradeCostText.text = $"{archerTower.GetCurrentTowerStatus().upgradeCost}$";
+        fixedCostText.text = $"{archerTower.GetArcherTowerSO().fixedCost}$";
+    }
+
     private void HideUI() {
         this.gameObject.SetActive(false);
     }
 
     public void ShowUI() {
+
+        UpdateVisual();
 
         this.gameObject.SetActive(true);
 

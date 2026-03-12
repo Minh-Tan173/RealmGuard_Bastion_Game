@@ -15,9 +15,10 @@ MonoBehaviour:
   enemyName: Slime
   description: Slime is a basic, slow-moving enemy with moderate HP. Dumb tower placement
     lets it slip through and reach your home base.
-  anomalyDescription: "Slime has a \"Splitting Anomaly\":  Occasionally stops, goes
-    invulnerable, splits into two full-HP Mini Slimes, then vanishes \u2014 turning
-    one threat into two."
+  anomalyDescription: 'Slime has a "Splitting Anomaly":  Occasionally stops, goes
+    invulnerable, splits into two full-HP Mini Slimes, then vanishes - turning one
+    threat into two.'
+  enemyPrice: 10
   totalHealth: 7
   moveSpeed: 1
   radiusOffset: 0.7
