@@ -23,31 +23,18 @@ public class LevelButtonVisual : MonoBehaviour
 
     private void UpdateVisual() {
 
-        LevelManagerSO levelManagerSO = levelButton.GetLevelManagerSO();
-        ILevelManager.GameLevel gameLevel = levelManagerSO.gameLevel;
+        ILevelManager.GameLevel buttonLevel = levelButton.GetLevelData().gameLevel;
 
+        if (buttonLevel != ILevelManager.GameLevel.Level5) {
 
-        if (gameLevel != ILevelManager.GameLevel.Level5) {
             ShowLevelText();
 
-            if (gameLevel == ILevelManager.GameLevel.Level1) {
-                levelText.text = "1";
-            }
-            if (gameLevel == ILevelManager.GameLevel.Level2) {
-                levelText.text = "2";
-            }
-            if (gameLevel == ILevelManager.GameLevel.Level3) {
-                levelText.text = "3";
-            }
-            if (gameLevel == ILevelManager.GameLevel.Level4) {
-                levelText.text = "4";
-            }
-
+            levelText.text = $"{(int)buttonLevel}";
         }
         else {
+
             ShowLevelBoss();
         }
-
     }
 
     private void ShowLevelText() {

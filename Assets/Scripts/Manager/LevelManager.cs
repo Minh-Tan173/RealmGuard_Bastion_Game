@@ -36,6 +36,8 @@ public class LevelManager : MonoBehaviour
     [Header("Level Data")]
     [SerializeField] private LevelManagerSO levelManagerSO;
 
+    private LevelData levelData;
+
     private LevelState currentLevelState;
 
     private float currentCoin;
@@ -54,8 +56,15 @@ public class LevelManager : MonoBehaviour
         Instance = this;
             
         // Load Database
-        if (Loader.levelDataLoaded != null) {
-            levelManagerSO = Loader.levelDataLoaded;
+        //if (Loader.levelDataLoaded != null) {
+        //    levelManagerSO = Loader.levelDataLoaded;
+        //}
+
+        if (Loader.currentLevelData != null) {
+
+            levelData = Loader.currentLevelData;
+
+            levelManagerSO = levelData.levelManagerSO;
         }
 
         Time.timeScale = 1f;

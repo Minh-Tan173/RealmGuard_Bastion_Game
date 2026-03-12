@@ -13,6 +13,8 @@ public static class SaveData
     public const string ABILITY_DATA_PATH = "AbilityData_ProjectB.json";
     public const string GAME_MANGEMENT_PATH = "GameMangement_ProjectB.json";
 
+    public static GameDataTemplateSO cachedGameData;
+
     public static SoundData soundData;
     public static MapCollection mapCollection;
     public static AbilityStatCollection abilityStatusCollection;
@@ -40,6 +42,9 @@ public static class SaveData
         mapCollection = new MapCollection();
         abilityStatusCollection = new AbilityStatCollection();
         gameProgression = new GameProgression();
+
+        // 0. Loaded gameDataTemplate into cached
+        cachedGameData = gameDataTemplateSO;
 
         // 1. Sound volume load Saved
         if (!File.Exists(volumeDataPath)) {
@@ -536,6 +541,62 @@ public static class SaveData
 
     public static bool IsUnlockAnomaly(EnemySO enemySO) {
         return enemiesStatusDict[enemySO.enemyName].isUnlockAnomaly;
+    }
+
+    #endregion
+
+    #region Get Level Data Base On Biome and Level
+
+    public static LevelData GetLevelDataByBiomeAndLevel(ILevelManager.BiomeType biomeType, ILevelManager.GameLevel gameLevel) {
+
+        List<LevelData> levelDataList = cachedGameData.levelDataList;
+
+        foreach (LevelData levelData in levelDataList) {
+
+            if (levelData.biomeType == biomeType) {
+
+                if (levelData.gameLevel == gameLevel) {
+
+                    return levelData;
+                }
+                else {
+                    continue;
+                }
+            }
+            else {
+                continue;
+            }
+
+        }
+
+        return null;
+    }
+
+    public static LevelData GetNextLevelData(LevelManagerSO currentLevelSO) {
+
+        ILevelManager.BiomeType currentBiome = currentLevelSO.biomeType;
+        ILevelManager.GameLevel currentLevel = currentLevelSO.gameLevel;
+
+        LevelData nextLevelData = null;
+
+        if (currentLevel != ILevelManager.GameLevel.Level5) {
+            // Not reached last level of current biome
+
+            ILevelManager.GameLevel nextLevel = (ILevelManager.GameLevel)((int)currentLevel + 1);
+
+            nextLevelData = GetLevelDataByBiomeAndLevel(currentBiome, nextLevel);
+
+        }
+        else {
+            // Reached last level of current biome --> Move to next Biome and Restart to Level 1
+
+            ILevelManager.BiomeType nextBiome = (ILevelManager.BiomeType)((int)currentBiome + 1);
+            ILevelManager.GameLevel nextLevel = ILevelManager.GameLevel.Level1;
+
+            nextLevelData = GetLevelDataByBiomeAndLevel(nextBiome, nextLevel);
+        }
+
+        return nextLevelData;
     }
 
     #endregion

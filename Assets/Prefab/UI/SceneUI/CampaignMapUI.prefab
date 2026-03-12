@@ -476,9 +476,6 @@ Transform:
   m_Children:
   - {fileID: 940697932363662058}
   - {fileID: 4421500828899018314}
-  - {fileID: 4023457986507158637}
-  - {fileID: 5034674052948202867}
-  - {fileID: 6797659604963897389}
   m_Father: {fileID: 4066341546882089373}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &868349877690412806
@@ -589,8 +586,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   biomeType: 1
   gameLevel: 1
-  sceneLoaded: 3
-  levelManagerSO: {fileID: 11400000, guid: 47ca5390df31a384d832ead8f6c41d3a, type: 2}
 --- !u!1 &1357607135662100678
 GameObject:
   m_ObjectHideFlags: 0
@@ -923,9 +918,6 @@ MonoBehaviour:
   levelAnchorPointArray:
   - {fileID: 6443713335657039982}
   - {fileID: 2886553593985668877}
-  - {fileID: 8788297453417908970}
-  - {fileID: 430353034052825722}
-  - {fileID: 2454283028998180703}
   totalPointText: {fileID: 5737053555875757684}
 --- !u!1 &4179826470759174298
 GameObject:
@@ -1113,54 +1105,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &4954366387366825449
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4023457986507158637}
-  - component: {fileID: 8788297453417908970}
-  m_Layer: 0
-  m_Name: Level_3_Forest
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4023457986507158637
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4954366387366825449}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -448.9, y: 24.7, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 107910901969328727}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8788297453417908970
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4954366387366825449}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 990a73d92e8a39345b0eaac1ae3494bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  biomeType: 1
-  gameLevel: 3
-  sceneLoaded: 3
-  levelManagerSO: {fileID: 11400000, guid: a87b542fe31b51c429f748e526ec45ff, type: 2}
 --- !u!1 &4998425872359810503
 GameObject:
   m_ObjectHideFlags: 0
@@ -1587,8 +1531,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   biomeType: 1
   gameLevel: 2
-  sceneLoaded: 3
-  levelManagerSO: {fileID: 11400000, guid: a87b542fe31b51c429f748e526ec45ff, type: 2}
 --- !u!1 &5545840956626023712
 GameObject:
   m_ObjectHideFlags: 0
@@ -2002,54 +1944,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!1 &7207622539349869612
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5034674052948202867}
-  - component: {fileID: 430353034052825722}
-  m_Layer: 0
-  m_Name: Level_4_Forest
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &5034674052948202867
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7207622539349869612}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -410.9, y: -98.8, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 107910901969328727}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &430353034052825722
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7207622539349869612}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 990a73d92e8a39345b0eaac1ae3494bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  biomeType: 1
-  gameLevel: 4
-  sceneLoaded: 3
-  levelManagerSO: {fileID: 11400000, guid: a87b542fe31b51c429f748e526ec45ff, type: 2}
 --- !u!1 &7998426368513377379
 GameObject:
   m_ObjectHideFlags: 0
@@ -2393,54 +2287,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &8930077249767562785
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6797659604963897389}
-  - component: {fileID: 2454283028998180703}
-  m_Layer: 0
-  m_Name: Level_5_Forest
-  m_TagString: Untagged
-  m_Icon: {fileID: 5132851093641282708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &6797659604963897389
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8930077249767562785}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -289, y: -141, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 107910901969328727}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2454283028998180703
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8930077249767562785}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 990a73d92e8a39345b0eaac1ae3494bc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  biomeType: 1
-  gameLevel: 5
-  sceneLoaded: 3
-  levelManagerSO: {fileID: 11400000, guid: a87b542fe31b51c429f748e526ec45ff, type: 2}
 --- !u!1 &9110309880956350413
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,6 +17,15 @@ MonoBehaviour:
     m_SubObjectName: 
     m_SubObjectType: 
     m_EditorAssetChanged: 0
+  levelDataList:
+  - biomeType: 1
+    gameLevel: 1
+    levelManagerSO: {fileID: 11400000, guid: 47ca5390df31a384d832ead8f6c41d3a, type: 2}
+    sceneToLoad: 3
+  - biomeType: 1
+    gameLevel: 2
+    levelManagerSO: {fileID: 11400000, guid: a87b542fe31b51c429f748e526ec45ff, type: 2}
+    sceneToLoad: 3
   abilitySOList:
   - {fileID: 11400000, guid: 4d33b877991f5db408435c82846172c2, type: 2}
   - {fileID: 11400000, guid: 53576bb12f955204689e243a00eac1b5, type: 2}

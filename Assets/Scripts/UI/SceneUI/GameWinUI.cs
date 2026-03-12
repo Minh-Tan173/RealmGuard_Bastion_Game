@@ -21,6 +21,7 @@ public class GameWinUI : MonoBehaviour
     [SerializeField] private Vector3 endPosition;
 
     [Header("Button")]
+    [SerializeField] private Button nextLevelButton;
     [SerializeField] private Button restartButton;
     [SerializeField] private Button mainMenuButton;
 
@@ -37,6 +38,17 @@ public class GameWinUI : MonoBehaviour
     private void Awake() {
 
         canvasGroup = GetComponent<CanvasGroup>();
+
+        nextLevelButton.onClick.AddListener(() => {
+
+            OnClickedButton(() => {
+
+                LevelData nextLevelData = SaveData.GetNextLevelData(LevelManager.Instance.GetLevelManagerSO());
+
+                Loader.Load(nextLevelData);
+            });
+
+        });
 
         restartButton.onClick.AddListener(() => {
 
@@ -97,9 +109,9 @@ public class GameWinUI : MonoBehaviour
         OnClickedButtonSFX?.Invoke(this, EventArgs.Empty);
 
         // 2. Dotween anim
-        Sequence resetGameSequence = DOTween.Sequence();
-        resetGameSequence.Append(gameWinPanelRect.DOPunchScale(punchStrength, punchDuration));
-        resetGameSequence.Append(gameWinPanelRect.DOAnchorPos(firstPosition, dropDuration).SetEase(Ease.InQuad)).OnComplete(() => {
+        Sequence sequence = DOTween.Sequence();
+        sequence.Append(gameWinPanelRect.DOPunchScale(punchStrength, punchDuration));
+        sequence.Append(gameWinPanelRect.DOAnchorPos(firstPosition, dropDuration).SetEase(Ease.InQuad)).OnComplete(() => {
             action?.Invoke();
         });
 

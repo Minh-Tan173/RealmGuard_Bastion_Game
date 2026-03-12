@@ -82,33 +82,30 @@ public class CampaignMapUI : MonoBehaviour
 
         anchorPointDict = new Dictionary<ILevelManager.BiomeType, List<LevelAnchorPoint>>();
 
-        foreach(LevelAnchorPoint levelAnchorPoint in levelAnchorPointArray) {
+        foreach (LevelAnchorPoint levelAnchorPoint in levelAnchorPointArray) {
 
-            if (!anchorPointDict.ContainsKey(levelAnchorPoint.biomeType)) {
+            if (!anchorPointDict.ContainsKey(levelAnchorPoint.GetBiomeType())) {
 
-                anchorPointDict[levelAnchorPoint.biomeType] = new List<LevelAnchorPoint>();
-
-            }
-            anchorPointDict[levelAnchorPoint.biomeType].Add(levelAnchorPoint);
-        }
-
-        // Spawn Button Level
-        foreach(var key in anchorPointDict.Keys) {
-
-            foreach(LevelAnchorPoint levelAnchorPoint in anchorPointDict[key]) {
-
-                Loader.Scene sceneLoaded = levelAnchorPoint.GetSceneLoaded();
-                LevelManagerSO levelManagerSO = levelAnchorPoint.GetLevelManagerSO();
-
-                LevelButton levelButton = LevelButton.SpawnLevelButton(levelButtonPrefab, levelButtonParent.transform , levelAnchorPoint.transform.position ,sceneLoaded, levelManagerSO);
+                anchorPointDict[levelAnchorPoint.GetBiomeType()] = new List<LevelAnchorPoint>();
 
             }
-
+            anchorPointDict[levelAnchorPoint.GetBiomeType()].Add(levelAnchorPoint);
         }
 
     }
 
     private void Start() {
+
+        // Spawn Button Level Base on anchorPointData
+        foreach (var key in anchorPointDict.Keys) {
+
+            foreach (LevelAnchorPoint levelAnchorPoint in anchorPointDict[key]) {
+
+                LevelButton levelButton = LevelButton.SpawnLevelButton(levelButtonPrefab, levelButtonParent.transform, levelAnchorPoint);
+
+            }
+
+        }
 
         // After Spawn
         StartCoroutine(SpawnCoroutine());

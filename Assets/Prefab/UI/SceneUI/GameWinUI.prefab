@@ -109,6 +109,7 @@ MonoBehaviour:
   gameWinPanelRect: {fileID: 7250777290698925662}
   firstPosition: {x: 0, y: 900, z: 0}
   endPosition: {x: 0, y: 0, z: 0}
+  nextLevelButton: {fileID: 447772279409257948}
   restartButton: {fileID: 5892249274204851342}
   mainMenuButton: {fileID: 5155741807302937742}
   rewardValueText: {fileID: 816377302570861919}
@@ -1464,6 +1465,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0454c8775dc67141b12a7e1fcf3d6fc, type: 3}
+--- !u!114 &447772279409257948 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4823573148904796363, guid: c0454c8775dc67141b12a7e1fcf3d6fc, type: 3}
+  m_PrefabInstance: {fileID: 4955658047790882071}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e29b1a8efbd4b44bb3f3716e73f07ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5944448650013811407 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1637309366463774680, guid: c0454c8775dc67141b12a7e1fcf3d6fc, type: 3}

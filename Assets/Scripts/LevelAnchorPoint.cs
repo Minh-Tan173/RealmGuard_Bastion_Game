@@ -4,17 +4,26 @@ using UnityEngine;
 
 public class LevelAnchorPoint : MonoBehaviour
 {
-    public ILevelManager.BiomeType biomeType;
-    public ILevelManager.GameLevel gameLevel;
-    [SerializeField] private Loader.Scene sceneLoaded;
-    [SerializeField] private LevelManagerSO levelManagerSO;
+    [SerializeField] private ILevelManager.BiomeType biomeType;
+    [SerializeField] private ILevelManager.GameLevel gameLevel;
 
-    public Loader.Scene GetSceneLoaded() {
-        return sceneLoaded;
+    private LevelData levelData;
+
+    private void Awake() {
+
+        levelData = SaveData.GetLevelDataByBiomeAndLevel(biomeType, gameLevel);
     }
 
-    public LevelManagerSO GetLevelManagerSO() {
-        return levelManagerSO;
+    public LevelData GetLevelData() {
+        return this.levelData;
+    }
+
+    public ILevelManager.BiomeType GetBiomeType() {
+        return this.biomeType;
+    }
+
+    public ILevelManager.GameLevel GetGameLevel() {
+        return this.gameLevel;
     }
 
 }

@@ -7,20 +7,21 @@ using UnityEngine.UI;
 
 public class LevelButton : MonoBehaviour {
 
-    private Loader.Scene sceneLoaded;
-    private LevelManagerSO levelManagerSO;
+    private LevelData levelData;
 
     private void Awake() {
-        Button levelButton = this.GetComponent<Button>();
+
+        Button levelButton = GetComponent<Button>();
 
         levelButton.onClick.AddListener(() => {
-            Loader.Load(this.sceneLoaded, this.levelManagerSO);
+
+            Loader.Load(levelData);
         });
     }
 
     private void Start() {
 
-        LevelStatus currentLevelStatus = SaveData.GetLevelStatusByBiomeAndLevel(this.levelManagerSO.biomeType, this.levelManagerSO.gameLevel);
+        LevelStatus currentLevelStatus = SaveData.GetLevelStatusByBiomeAndLevel(levelData.biomeType, levelData.gameLevel);
 
         if (currentLevelStatus.isUnlockedLevel) {
             // If current level attach to this button is unlocked
@@ -42,20 +43,19 @@ public class LevelButton : MonoBehaviour {
         this.gameObject.SetActive(false);
     }
 
-    public LevelManagerSO GetLevelManagerSO() {
-        return this.levelManagerSO;
+    public LevelData GetLevelData() {
+        return this.levelData;
     }
 
-    public static LevelButton SpawnLevelButton(Transform prefab, Transform parent, Vector3 spawnPos ,Loader.Scene sceneLoaded, LevelManagerSO levelManagerSO) {
+    public static LevelButton SpawnLevelButton(Transform prefab, Transform parent, LevelAnchorPoint levelAnchorPoint) {
         
         Transform buttonTransform = Instantiate(prefab, parent);
 
-        buttonTransform.transform.position = spawnPos;
+        buttonTransform.transform.position = levelAnchorPoint.transform.position;
 
         LevelButton levelButton = buttonTransform.GetComponent<LevelButton>();
 
-        levelButton.levelManagerSO = levelManagerSO;
-        levelButton.sceneLoaded = sceneLoaded;
+        levelButton.levelData = levelAnchorPoint.GetLevelData();
 
         return levelButton;
     }
