@@ -19,7 +19,7 @@ MonoBehaviour:
   anomalyDescription: 'Orc has a "Thunderstrike Anomaly":  Upon death, unleashes
     a powerful lightning strike dealing massive damage to nearby soldiers and towers.'
   enemyPrice: 45
-  totalHealth: 18
+  totalHealth: 14
   moveSpeed: 0.8
   radiusOffset: 0.8
   detectedZone: 3.5

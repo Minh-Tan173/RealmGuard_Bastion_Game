@@ -19,8 +19,8 @@ MonoBehaviour:
   anomalyDescription: 'Slime has a "Splitting Anomaly":  Occasionally stops, goes
     invulnerable, splits into two full-HP Mini Slimes, then vanishes - turning one
     threat into two.'
-  enemyPrice: 20
-  totalHealth: 7
+  enemyPrice: 25
+  totalHealth: 4
   moveSpeed: 0.9
   radiusOffset: 0.7
   detectedZone: 0

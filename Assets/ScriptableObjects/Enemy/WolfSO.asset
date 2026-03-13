@@ -19,7 +19,7 @@ MonoBehaviour:
   anomalyDescription: 'Wolf has a "Frenzy Anomaly": Occasionally howls and enters
     a berserk state, shredding nearby towers with rapid bites for a short burst.'
   enemyPrice: 30
-  totalHealth: 12
+  totalHealth: 7
   moveSpeed: 1.8
   radiusOffset: 0.6
   detectedZone: 2.8

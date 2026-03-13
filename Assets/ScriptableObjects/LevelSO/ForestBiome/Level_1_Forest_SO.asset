@@ -17,7 +17,7 @@ MonoBehaviour:
   gameLevel: 1
   startGameTimer: 1
   endTurnTimer: 1
-  coinStart: 1000
+  coinStart: 1300
   numberOfHeart: 20
   waveScriptList:
   - waveName: Wave 1

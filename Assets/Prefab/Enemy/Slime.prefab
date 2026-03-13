@@ -264,7 +264,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slimeSO: {fileID: 11400000, guid: 92a05bd60cecbaf42ab2766704dc4e42, type: 2}
-  anomalyTimerMax: 5
+  anomalyTimerMax: 6
   splitPos1: {fileID: 7466241055037273765}
   splitPos2: {fileID: 3466946371417183010}
   slimeMiniPrefab: {fileID: 7016242877684667469, guid: 640bacfd69515fe40b912807ec566728, type: 3}

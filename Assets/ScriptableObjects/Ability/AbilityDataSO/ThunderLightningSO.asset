@@ -19,8 +19,8 @@ MonoBehaviour:
   iconPrefab: {fileID: 7719046608174368494, guid: 8da5b69e47eee8244a7f889391be2701, type: 3}
   canAttackLayer:
     serializedVersion: 2
-    m_Bits: 3136
-  price: 1000
+    m_Bits: 1088
+  price: 800
   abilityLevelDataList:
   - level: 1
     pointUnlock: 1

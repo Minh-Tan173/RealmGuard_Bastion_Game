@@ -17,7 +17,7 @@ MonoBehaviour:
   gameLevel: 2
   startGameTimer: 1
   endTurnTimer: 1
-  coinStart: 1000
+  coinStart: 1300
   numberOfHeart: 20
   waveScriptList:
   - waveName: Wave 1
@@ -71,5 +71,5 @@ MonoBehaviour:
       cdSpawnTimer: 2
     newEnemy: {fileID: 0}
     newEnemyAnomaly: {fileID: 11400000, guid: fc2a35ba1fcc4a041abc337dd0c83ffe, type: 2}
-  newTower: 4
+  newTower: 2
   pointGetWhenWin: 1

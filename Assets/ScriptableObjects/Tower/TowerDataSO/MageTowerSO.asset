@@ -42,7 +42,7 @@ MonoBehaviour:
     upgradeCost: 0
     attackDamage: 2.7
     attackRange: 0
-    cooldownTimer: 1.2
+    cooldownTimer: 1
     mageSpawnPos: {x: 0, y: -0.025, z: 0}
   - levelTower: 2
     currentSprite: {fileID: -145018517, guid: 776b72ee8e5d35b48b3322ea220435aa, type: 3}
@@ -50,7 +50,7 @@ MonoBehaviour:
     upgradeCost: 450
     attackDamage: 3.2
     attackRange: 2.8
-    cooldownTimer: 1.05
+    cooldownTimer: 0.9
     mageSpawnPos: {x: 0, y: 0, z: 0}
   - levelTower: 3
     currentSprite: {fileID: -1920315542, guid: f9382d5323e824e4f80bca0b11828179, type: 3}
@@ -58,7 +58,7 @@ MonoBehaviour:
     upgradeCost: 600
     attackDamage: 3.6
     attackRange: 3.2
-    cooldownTimer: 0.8
+    cooldownTimer: 0.7
     mageSpawnPos: {x: 0, y: 0.15, z: 0}
   - levelTower: 4
     currentSprite: {fileID: 1808358564, guid: d8df725fa8354e544a5e55100e861bb9, type: 3}
@@ -66,6 +66,6 @@ MonoBehaviour:
     upgradeCost: 750
     attackDamage: 4
     attackRange: 3.7
-    cooldownTimer: 0.75
+    cooldownTimer: 0.6
     mageSpawnPos: {x: 0.012, y: 0.488, z: 0}
   magicBoltSpeed: 12

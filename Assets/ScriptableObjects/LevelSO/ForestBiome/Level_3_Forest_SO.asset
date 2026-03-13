@@ -32,5 +32,5 @@ MonoBehaviour:
     enemyGroupList: []
     newEnemy: {fileID: 0}
     newEnemyAnomaly: {fileID: 0}
-  newTower: 2
+  newTower: 4
   pointGetWhenWin: 1

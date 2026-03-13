@@ -161,10 +161,10 @@ public class Slime : BaseEnemy
 
             anomalyTimer = anomalyTimerMax;
 
-            int randomIndex = UnityEngine.Mathf.FloorToInt(UnityEngine.Random.value * 3.99f);
+            int randomIndex = UnityEngine.Mathf.FloorToInt(UnityEngine.Random.value * 9.99f);
 
             if (randomIndex == 0f && canMove) {
-                // 25% chance to active anomaly while moving
+                // 10% chance to active anomaly while moving
 
                 canMove = false;
                 StartCoroutine(AnomalyCoroutine());

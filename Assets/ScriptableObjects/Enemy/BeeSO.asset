@@ -19,7 +19,7 @@ MonoBehaviour:
     to react.
   anomalyDescription: 
   enemyPrice: 30
-  totalHealth: 4
+  totalHealth: 2
   moveSpeed: 3
   radiusOffset: 0.5
   detectedZone: 0

@@ -94,7 +94,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5993044061489395271, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 5993044061489395271, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
       propertyPath: m_IsActive
@@ -107,6 +107,10 @@ PrefabInstance:
     - target: {fileID: 6187611224084788575, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 6811983119125255902, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
+      propertyPath: m_FlipX
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6811983119125255902, guid: 8a82a806d2f3798478d40f47ca34ac94, type: 3}
       propertyPath: m_Size.x
