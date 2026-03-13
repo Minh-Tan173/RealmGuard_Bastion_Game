@@ -168,6 +168,11 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
                     }
 
                 }
+                else {
+                    // Enemy đó không inherit interface ICanAttackPhysic
+
+                    continue;
+                }
 
                 // Nếu enemy đó đang là intent Target của guardian trong List
                 if (enemyDetected.TryGetComponent<BaseEnemy>(out BaseEnemy baseEnemy)) {

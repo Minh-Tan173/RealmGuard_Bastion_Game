@@ -3236,7 +3236,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   canTakeDamageByLayer:
     serializedVersion: 2
-    m_Bits: 64
+    m_Bits: 1088
 --- !u!4 &1941551952
 Transform:
   m_ObjectHideFlags: 0

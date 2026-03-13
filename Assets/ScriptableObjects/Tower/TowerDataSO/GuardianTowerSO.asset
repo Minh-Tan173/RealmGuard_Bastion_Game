@@ -17,57 +17,57 @@ MonoBehaviour:
   description: 
   prefab: {fileID: 4059513659539484242, guid: 482af47ad6eb7aa459e42d511e6d0c6c, type: 3}
   icon: {fileID: 8337086393917185070, guid: 94117bb9cd8660e44beb68a92c9e0cf0, type: 3}
-  price: 250
-  fixedCost: 125
-  healthTower: 100
-  baseRange: 4
+  price: 380
+  fixedCost: 190
+  healthTower: 120
+  baseRange: 2.8
   soldierManagerSO: {fileID: 11400000, guid: a22890795275d9b4e9f12fe3d81989be, type: 2}
-  scanTimerMax: 0
-  placedSFXTimer: 0
+  scanTimerMax: 0.2
+  placedSFXTimer: 0.6
   canAttackLayer:
     serializedVersion: 2
-    m_Bits: 2048
+    m_Bits: 1024
   guardianSO: {fileID: 11400000, guid: 6e4892832f8ddbf43a8cf1da314a681b, type: 2}
-  viewAngle: 70
-  deployGuardianTimer: 2
+  damageBonusRate: 25
+  delayDeployGuardianTimer: 2
   towerLevelDataList:
   - levelTower: 1
     currentSprite: {fileID: 1108616610, guid: 3fdda8505fc1fda4ca8d0a2f217bd20e, type: 3}
-    upgradeTimer: 2
-    upgradeCost: 200
-    countOfGuardian: 5
-    healthOfGuardian: 10
-    attackDamage: 1
-    attackRange: 3
-    attackSpeed: 0.8
-    RespawnTimer: 2
+    upgradeTimer: 1.2
+    upgradeCost: 0
+    countOfGuardian: 2
+    healthOfGuardian: 30
+    attackDamage: 4
+    attackRange: 0
+    attackSpeed: 2
+    respawnTimer: 3.6
   - levelTower: 2
     currentSprite: {fileID: 987534, guid: 6371c9a60b7bd2344a3bc30536e6bf56, type: 3}
-    upgradeTimer: 2
-    upgradeCost: 200
-    countOfGuardian: 5
-    healthOfGuardian: 100
-    attackDamage: 1
-    attackRange: 1
-    attackSpeed: 2
-    RespawnTimer: 3
+    upgradeTimer: 1.4
+    upgradeCost: 400
+    countOfGuardian: 3
+    healthOfGuardian: 45
+    attackDamage: 5
+    attackRange: 3
+    attackSpeed: 1.9
+    respawnTimer: 3.3
   - levelTower: 3
     currentSprite: {fileID: -721577091, guid: 333aaa865fcb6b34e9d2be1d51548af1, type: 3}
-    upgradeTimer: 0
-    upgradeCost: 0
-    countOfGuardian: 0
-    healthOfGuardian: 0
-    attackDamage: 0
-    attackRange: 0
-    attackSpeed: 0
-    RespawnTimer: 0
+    upgradeTimer: 1.6
+    upgradeCost: 500
+    countOfGuardian: 4
+    healthOfGuardian: 65
+    attackDamage: 6.4
+    attackRange: 3.2
+    attackSpeed: 1.8
+    respawnTimer: 3
   - levelTower: 4
     currentSprite: {fileID: -1438266717, guid: d9499fdddae58e94ab8687f89cce76b2, type: 3}
-    upgradeTimer: 0
-    upgradeCost: 0
-    countOfGuardian: 0
-    healthOfGuardian: 0
-    attackDamage: 0
-    attackRange: 0
-    attackSpeed: 0
-    RespawnTimer: 0
+    upgradeTimer: 1.8
+    upgradeCost: 650
+    countOfGuardian: 5
+    healthOfGuardian: 85
+    attackDamage: 7
+    attackRange: 3.4
+    attackSpeed: 1.7
+    respawnTimer: 2.7

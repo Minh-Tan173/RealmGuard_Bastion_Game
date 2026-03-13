@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c443dba30236741880498f9669af20, type: 3}
   m_Name: WolfSO
   m_EditorClassIdentifier: 
+  resistanceType: 0
   enemyName: Wolf
   description: Wolf is a fast ground enemy with moderate HP. It races ahead and slips
     through weak defenses if not stopped quickly.
   anomalyDescription: 'Wolf has a "Frenzy Anomaly": Occasionally howls and enters
     a berserk state, shredding nearby towers with rapid bites for a short burst.'
-  enemyPrice: 20
+  enemyPrice: 30
   totalHealth: 12
   moveSpeed: 1.8
   radiusOffset: 0.6

@@ -95,7 +95,7 @@ public class TowerButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHand
 
             BuildingManager.Instance.SpawnTowerIcon(towerSO);
 
-            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrase, towerSO.price);
+            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrease, towerSO.price);
 
         }
 

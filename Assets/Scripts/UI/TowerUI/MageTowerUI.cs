@@ -22,7 +22,7 @@ public class MageTowerUI : MonoBehaviour, IHasFunctionButton
     [SerializeField] private Button fixButton;
     [SerializeField] private Button changeTypeButton;
 
-    [Header("GroundText")]
+    [Header("Text")]
     [SerializeField] private TextMeshProUGUI typeNameText;
     [SerializeField] private TextMeshProUGUI upgradeCostText;
     [SerializeField] private TextMeshProUGUI fixedCostText;
@@ -62,6 +62,15 @@ public class MageTowerUI : MonoBehaviour, IHasFunctionButton
                 // If is in upgrade progress
                 return;
             }
+
+            List<MageTowerLevelData> mageTowerLevelDataList = mageTower.GetMageTowerSO().towerLevelDataList;
+            float upgradeNextLevelCost = mageTowerLevelDataList[mageTowerLevelDataList.IndexOf(mageTower.GetCurrentTowerStatus()) + 1].upgradeCost;
+
+            if (LevelManager.Instance.GetCurrentCoin() < upgradeNextLevelCost) {
+                return;
+            }
+
+            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrease, upgradeNextLevelCost);
 
             int currentLevelIndex = (int)mageTower.GetCurrentTowerStatus().levelTower;
             int nextLevelIndex = currentLevelIndex + 1;
@@ -190,9 +199,26 @@ public class MageTowerUI : MonoBehaviour, IHasFunctionButton
 
         this.gameObject.SetActive(true);
 
+
         if (mageTower.GetMageList().Count == 4) {
             buyMageButton.gameObject.SetActive(false);
         }
+
+        // Update upgradeLevelButton visual and text
+        if (mageTower.GetCurrentTowerStatus().levelTower == ITowerObject.LevelTower.Level4) {
+            // Reached last level
+
+            upgradeButton.gameObject.SetActive(false);
+        }
+        else {
+
+            List<MageTowerLevelData> mageTowerLevelDataList = mageTower.GetMageTowerSO().towerLevelDataList;
+            float upgradeNextLevelCost = mageTowerLevelDataList[mageTowerLevelDataList.IndexOf(mageTower.GetCurrentTowerStatus()) + 1].upgradeCost;
+
+            upgradeCostText.text = $"{upgradeNextLevelCost}$";
+        }
+
+        fixedCostText.text = $"{mageTower.GetMageTowerSO().fixedCost}$";
 
         OnFunctionButton?.Invoke(this, EventArgs.Empty);
     }

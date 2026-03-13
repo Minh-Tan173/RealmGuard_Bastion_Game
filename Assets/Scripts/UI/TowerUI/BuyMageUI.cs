@@ -93,7 +93,7 @@ public class BuyMageUI : MonoBehaviour, IHasFunctionButton
 
             UpdateVisual();
 
-            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrase, mageTower.GetMageTowerSO().priceMage);
+            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrease, mageTower.GetMageTowerSO().priceMage);
         }
 
     }

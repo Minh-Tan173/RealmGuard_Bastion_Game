@@ -6,6 +6,14 @@ using UnityEngine;
 public class BaseEnemy : MonoBehaviour
 {
 
+    public enum DamageResistance {
+
+        None,
+        PhysicResistance,
+        MagicResistance
+
+    }
+
     public enum EnemyLifeState {
 
         Alive,
@@ -42,6 +50,16 @@ public class BaseEnemy : MonoBehaviour
     }
 
     public virtual bool IsCantAttack() {
+        Debug.LogError("Trigger baseEnemy");
+        return true;
+    }
+
+    public virtual bool IsResistPhysic() {
+        Debug.LogError("Trigger baseEnemy");
+        return true;
+    }
+
+    public virtual bool IsResistMagic() {
         Debug.LogError("Trigger baseEnemy");
         return true;
     }

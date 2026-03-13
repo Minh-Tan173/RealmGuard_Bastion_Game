@@ -205,6 +205,14 @@ public class Bee : BaseEnemy
         return beeLifeControl.GetCurrentBeeLifeState() == BaseEnemy.EnemyLifeState.Death || beeLifeControl.GetCurrentBeeLifeState() == BaseEnemy.EnemyLifeState.Despawn;
     }
 
+    public override bool IsResistMagic() {
+        return beeSO.resistanceType == DamageResistance.MagicResistance;
+    }
+
+    public override bool IsResistPhysic() {
+        return beeSO.resistanceType == DamageResistance.PhysicResistance;
+    }
+
     public override Vector3 GetEnemyVelocity() {
         
         if (!canMove || waypointList == null || waypointList.Count == 0) {

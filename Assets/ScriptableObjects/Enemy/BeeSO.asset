@@ -12,12 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c443dba30236741880498f9669af20, type: 3}
   m_Name: BeeSO
   m_EditorClassIdentifier: 
+  resistanceType: 0
   enemyName: Bee
   description: Bee is an extremely fast flying enemy with low HP. If not intercepted
     early, it can slip past your defenses and strike your base before you have time
     to react.
   anomalyDescription: 
-  enemyPrice: 25
+  enemyPrice: 30
   totalHealth: 4
   moveSpeed: 3
   radiusOffset: 0.5

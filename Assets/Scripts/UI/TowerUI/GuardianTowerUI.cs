@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -20,6 +21,10 @@ public class GuardianTowerUI : MonoBehaviour, IHasFunctionButton
     [SerializeField] private Button sellButton;
     [SerializeField] private Button fixButton;
 
+    [Header("Text")]
+    [SerializeField] private TextMeshProUGUI upgradeCostText;
+    [SerializeField] private TextMeshProUGUI fixedCostText;
+
     private void Awake() {
 
         upgradeButton.onClick.AddListener(() => {
@@ -28,6 +33,16 @@ public class GuardianTowerUI : MonoBehaviour, IHasFunctionButton
                 // If is in upgrade progress
                 return;
             }
+
+
+            List<GuardianTowerLevelData> guadianTowerLevelDataList = guardianTower.GetGuardianTowerSO().towerLevelDataList;
+            float upgradeNextLevelCost = guadianTowerLevelDataList[guadianTowerLevelDataList.IndexOf(guardianTower.GetCurrentTowerStatus()) + 1].upgradeCost;
+
+            if (LevelManager.Instance.GetCurrentCoin() < upgradeNextLevelCost) {
+                return;
+            }
+
+            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrease, upgradeNextLevelCost);
 
             int currentLevelIndex = (int)guardianTower.GetCurrentTowerStatus().levelTower;
             int nextLevelIndex = currentLevelIndex + 1;
@@ -124,6 +139,22 @@ public class GuardianTowerUI : MonoBehaviour, IHasFunctionButton
     public void ShowUI() {
 
         this.gameObject.SetActive(true);
+
+        // Update upgradeLevelButton visual and text
+        if (guardianTower.GetCurrentTowerStatus().levelTower == ITowerObject.LevelTower.Level4) {
+            // Reached last level
+
+            upgradeButton.gameObject.SetActive(false);
+        }
+        else {
+
+            List<GuardianTowerLevelData> guardianTowerLevelDataList = guardianTower.GetGuardianTowerSO().towerLevelDataList;
+            float upgradeNextLevelCost = guardianTowerLevelDataList[guardianTowerLevelDataList.IndexOf(guardianTower.GetCurrentTowerStatus()) + 1].upgradeCost;
+
+            upgradeCostText.text = $"{upgradeNextLevelCost}$";
+        }
+
+        fixedCostText.text = $"{guardianTower.GetGuardianTowerSO().fixedCost}$";
 
         OnFunctionButton?.Invoke(this, EventArgs.Empty);
     }

@@ -122,6 +122,8 @@ public class MageTower : BaseTower, IHasClockTimer, ITowerObject
 
             scanTimer = 0f;
 
+            enemyDetectedList.Clear();
+
             upEnemyList.Clear();
             rightEnemyList.Clear();
             downEnemyList.Clear();
@@ -139,6 +141,20 @@ public class MageTower : BaseTower, IHasClockTimer, ITowerObject
             // 1. Sort enemy base on their Direction with Tower
             foreach (Collider2D enemyDetected in enemyDetectedList) {
 
+                // 1.1 Skip enemies with magic resistance
+                if (enemyDetected.TryGetComponent<BaseEnemy>(out BaseEnemy baseEnemy)) {
+
+                    if (baseEnemy.IsResistMagic()) {
+
+                        continue;
+                    }
+                }
+                else {
+                    Debug.LogError("This enemy doesn't inherit from BaseEnemy class");
+                    return;
+                }
+
+                // 1.2 Sort enemy base on direction
                 Vector2 dirFromMageToEnemy = enemyDetected.transform.position - this.transform.position;
                 float xPos = dirFromMageToEnemy.x;
                 float yPos = dirFromMageToEnemy.y;

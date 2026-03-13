@@ -5,6 +5,9 @@ using UnityEngine;
 [CreateAssetMenu()]
 public class EnemySO : ScriptableObject
 {
+    [Header("Tag")]
+    public BaseEnemy.DamageResistance resistanceType;
+
     [Header("Description")]
     public string enemyName;
     public string description;

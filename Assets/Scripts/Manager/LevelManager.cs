@@ -279,6 +279,8 @@ public class LevelManager : MonoBehaviour
 
     public void ChangedHeartTo(ILevelManager.HeartChangedState heartChangedState) {
 
+        Debug.Log("Decrease");
+
         if (heartChangedState == ILevelManager.HeartChangedState.Decrase) {
             currentHeart -= 1;
             HeartChanged?.Invoke(this, EventArgs.Empty);
@@ -292,7 +294,7 @@ public class LevelManager : MonoBehaviour
 
     public void ChangedCoinTo(ILevelManager.CoinChangedState coinChangedState, float coinValue) {
 
-        if (coinChangedState == ILevelManager.CoinChangedState.Decrase) {
+        if (coinChangedState == ILevelManager.CoinChangedState.Decrease) {
             currentCoin -= coinValue;
         }
 

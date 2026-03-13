@@ -501,6 +501,14 @@ public class Wolf : BaseEnemy, ICanAttackPhysic
         return wolfLifeControl.GetCurrentWolfLifeState() == BaseEnemy.EnemyLifeState.Death || wolfLifeControl.GetCurrentWolfLifeState() == BaseEnemy.EnemyLifeState.Despawn;
     }
 
+    public override bool IsResistMagic() {
+        return wolfSO.resistanceType == DamageResistance.MagicResistance;
+    }
+
+    public override bool IsResistPhysic() {
+        return wolfSO.resistanceType == DamageResistance.PhysicResistance;
+    }
+
     public override Vector3 GetEnemyVelocity() {
 
         if (!isWalking) {

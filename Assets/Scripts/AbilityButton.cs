@@ -95,7 +95,7 @@ public class AbilityButton : MonoBehaviour, IHasClockTimer, IPointerEnterHandler
 
             BuildingManager.Instance.SpawnAbilityIcon(abilitySO);
 
-            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrase, abilitySO.price);
+            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrease, abilitySO.price);
 
         }
         else {

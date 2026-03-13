@@ -41,6 +41,15 @@ public class ArcherTowerUI : MonoBehaviour, IHasFunctionButton {
                 return;
             }
 
+            List<ArcherTowerLevelData> archerTowerLevelDataList = archerTower.GetArcherTowerSO().towerLevelDataList;
+            float upgradeNextLevelCost = archerTowerLevelDataList[archerTowerLevelDataList.IndexOf(archerTower.GetCurrentTowerStatus()) + 1].upgradeCost;
+
+            if (LevelManager.Instance.GetCurrentCoin() < upgradeNextLevelCost) {
+                return;
+            }
+
+            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrease, upgradeNextLevelCost);
+
             int currentLevelIndex = (int)archerTower.GetCurrentTowerStatus().levelTower;
             int nextLevelIndex = currentLevelIndex + 1;
 
@@ -119,25 +128,36 @@ public class ArcherTowerUI : MonoBehaviour, IHasFunctionButton {
 
     }
 
-    private void UpdateVisual() {
-
-        upgradeCostText.text = $"{archerTower.GetCurrentTowerStatus().upgradeCost}$";
-        fixedCostText.text = $"{archerTower.GetArcherTowerSO().fixedCost}$";
-    }
-
     private void HideUI() {
         this.gameObject.SetActive(false);
     }
 
     public void ShowUI() {
 
-        UpdateVisual();
-
         this.gameObject.SetActive(true);
 
+        // Update buyArcherButton visual
         if (archerTower.GetArcherList().Count == 4) {
+            
+
             buyArcherButton.gameObject.SetActive(false);
         }
+
+        // Update upgradeLevelButton visual and text
+        if (archerTower.GetCurrentTowerStatus().levelTower == ITowerObject.LevelTower.Level4) {
+            // Reached last level
+
+            upgradeButton.gameObject.SetActive(false);
+        }
+        else {
+
+            List<ArcherTowerLevelData> archerTowerLevelDataList = archerTower.GetArcherTowerSO().towerLevelDataList;
+            float upgradeNextLevelCost = archerTowerLevelDataList[archerTowerLevelDataList.IndexOf(archerTower.GetCurrentTowerStatus()) + 1].upgradeCost;
+
+            upgradeCostText.text = $"{upgradeNextLevelCost}$";
+        }
+
+        fixedCostText.text = $"{archerTower.GetArcherTowerSO().fixedCost}$";
 
         OnFunctionButton?.Invoke(this, EventArgs.Empty);
     }

@@ -94,7 +94,7 @@ public class BuyArcherUI : MonoBehaviour, IHasFunctionButton
 
             UpdateVisual();
 
-            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrase, archerTower.GetArcherTowerSO().priceArcher);
+            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrease, archerTower.GetArcherTowerSO().priceArcher);
         }
 
     }

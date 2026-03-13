@@ -44,7 +44,7 @@ public class CatapultTowerUI : MonoBehaviour, IHasFunctionButton {
             else {
                 // If enough Coin
 
-                LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrase, nextLevelData.upgradeCost);
+                LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Decrease, nextLevelData.upgradeCost);
             }
 
             int currentLevelIndex = (int)catapultTower.GetCurrentTowerStatus().levelTower;

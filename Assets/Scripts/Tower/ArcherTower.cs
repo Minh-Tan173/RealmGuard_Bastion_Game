@@ -129,6 +129,19 @@ public class ArcherTower : BaseTower, IHasClockTimer, ITowerObject
             // 1. Sort enemy base on their Direction with Tower
             foreach (Collider2D enemyDetected in enemyDetectedList) {
 
+                // 1.1 Skip enemies with magic resistance
+                if (enemyDetected.TryGetComponent<BaseEnemy>(out BaseEnemy baseEnemy)) {
+
+                    if (baseEnemy.IsResistPhysic()) {
+
+                        continue;
+                    }
+                }
+                else {
+                    Debug.LogError("This enemy doesn't inherit from BaseEnemy class");
+                    return;
+                }
+
                 Vector2 dirFromArcherToEnemy = enemyDetected.transform.position - this.transform.position;
                 float xPos = dirFromArcherToEnemy.x;
                 float yPos = dirFromArcherToEnemy.y;

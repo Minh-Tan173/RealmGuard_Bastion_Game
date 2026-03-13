@@ -413,6 +413,14 @@ public class Orc : BaseEnemy, ICanAttackPhysic
         return orcLifeControl.GetCurrentOrcLifeState() == BaseEnemy.EnemyLifeState.Death || orcLifeControl.GetCurrentOrcLifeState() == BaseEnemy.EnemyLifeState.Despawn;
     }
 
+    public override bool IsResistMagic() {
+        return orcSO.resistanceType == DamageResistance.MagicResistance;
+    }
+
+    public override bool IsResistPhysic() {
+        return orcSO.resistanceType == DamageResistance.PhysicResistance;
+    }
+
     public override EnemyDirection GetEnemyCurrentDirection() {
         return this.currentOrcDirection;
     }

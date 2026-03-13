@@ -12,14 +12,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43c443dba30236741880498f9669af20, type: 3}
   m_Name: OrcSO
   m_EditorClassIdentifier: 
+  resistanceType: 2
   enemyName: Orc
   description: Orc is a slow, heavily armored ground enemy with high HP. It trudges
     forward steadily and punishes soldiers who get too close.
   anomalyDescription: 'Orc has a "Thunderstrike Anomaly":  Upon death, unleashes
     a powerful lightning strike dealing massive damage to nearby soldiers and towers.'
-  enemyPrice: 35
+  enemyPrice: 45
   totalHealth: 18
-  moveSpeed: 0.9
+  moveSpeed: 0.8
   radiusOffset: 0.8
   detectedZone: 3.5
   attackDamage: 2

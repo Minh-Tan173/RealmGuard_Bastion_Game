@@ -32,7 +32,7 @@ public interface ILevelManager
 
     public enum CoinChangedState {
         Increase,
-        Decrase
+        Decrease
     };
 
 }

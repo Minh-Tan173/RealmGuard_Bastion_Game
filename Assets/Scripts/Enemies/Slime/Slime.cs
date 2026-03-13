@@ -280,6 +280,14 @@ public class Slime : BaseEnemy
         return cantAttack;
     }
 
+    public override bool IsResistMagic() {
+        return slimeSO.resistanceType == DamageResistance.MagicResistance;
+    }
+
+    public override bool IsResistPhysic() {
+        return slimeSO.resistanceType == DamageResistance.PhysicResistance;
+    }
+
     public override Vector3 GetEnemyVelocity() {
 
         if (!canMove || waypointList == null || waypointList.Count == 0) {

@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameMode: 0
   biomeType: 1
-  gameLevel: 3
+  gameLevel: 4
   startGameTimer: 1
   endTurnTimer: 1
   coinStart: 1200
@@ -32,5 +32,5 @@ MonoBehaviour:
     enemyGroupList: []
     newEnemy: {fileID: 0}
     newEnemyAnomaly: {fileID: 0}
-  newTower: 2
+  newTower: 3
   pointGetWhenWin: 1

@@ -882,7 +882,7 @@ GameObject:
   - component: {fileID: 5415313633552160359}
   - component: {fileID: 3092570962444512019}
   m_Layer: 5
-  m_Name: NewCooldownValueText (1)
+  m_Name: NewCooldownValueText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1797,6 +1797,14 @@ PrefabInstance:
       propertyPath: archerTower
       value: 
       objectReference: {fileID: 1551403961964935794}
+    - target: {fileID: 2284639914645620077, guid: 94a19b918844b944392be79500f69da3, type: 3}
+      propertyPath: newCooldownValueText
+      value: 
+      objectReference: {fileID: 3092570962444512019}
+    - target: {fileID: 2284639914645620077, guid: 94a19b918844b944392be79500f69da3, type: 3}
+      propertyPath: oldCooldownValueText
+      value: 
+      objectReference: {fileID: 8391598089768221848}
     - target: {fileID: 2829815973597696247, guid: 94a19b918844b944392be79500f69da3, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
