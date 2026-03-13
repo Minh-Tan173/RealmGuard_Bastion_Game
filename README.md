@@ -235,8 +235,8 @@ Map Generation
 
 ## 9: Future Development Plans
 Planned improvements include:
-# Advanced Tower Upgrades: Towers will be able to upgrade to levels 5–7, which must be unlocked through the World Map progression system using Blue Flame Points.
-# Custom Mode:
+- Advanced Tower Upgrades: Towers will be able to upgrade to levels 5–7, which must be unlocked through the World Map progression system using Blue Flame Points.
+- Custom Mode:
 - **A Custom Mode** will use the procedural generation system to automatically generate:
   * Maps
   * Enemy waves
