@@ -244,6 +244,6 @@ Planned improvements include:
 - This system will rely on: LevelManagerSO, WaveScript
 
 ## Author:
-- Game Developer / System Architect: Nguyễn Hoàng Minh Tân
-  * Email contact: minhtanjjjj@gmail.com
+- Game Developer / System Architect: Minh Tan
+  * Email: minhtanjjjj@gmail.com
   * Portfolio: 
