@@ -471,8 +471,6 @@ public class MageTower : BaseTower, IHasClockTimer, ITowerObject
 
     public MageTowerSO.MageType GetCurrentMageType() {
 
-        Debug.Log(this.currentMageType.ToString());
-
         return this.currentMageType;
     }
 

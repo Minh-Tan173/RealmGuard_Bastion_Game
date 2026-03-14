@@ -17,16 +17,16 @@ MonoBehaviour:
   description: 
   prefab: {fileID: 5525997062260903517, guid: b2ae57a883c62c545a7742e109a0b97d, type: 3}
   icon: {fileID: 8551092339147742886, guid: 3ff672ca77fbe824987025c6e3148472, type: 3}
-  price: 800
-  fixedCost: 400
-  healthTower: 100
-  baseRange: 2.6
+  price: 520
+  fixedCost: 260
+  healthTower: 150
+  baseRange: 3
   soldierManagerSO: {fileID: 11400000, guid: a22890795275d9b4e9f12fe3d81989be, type: 2}
   scanTimerMax: 0.2
   placedSFXTimer: 0.8
   canAttackLayer:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 1088
   blindSpotRange: 1.5
   towerLevelDataList:
   - levelTower: 1
@@ -36,36 +36,36 @@ MonoBehaviour:
     attackRange: 0
     pebbleSpeed: 6
     pebblePerVolley: 1
-    pebbleSplashRadius: 0.25
-    recoilTimer: 3
+    pebbleSplashRadius: 0.15
+    cooldownTimer: 1.5
     catapulSpawnPos: {x: 0, y: 0.08, z: 0}
   - levelTower: 2
     upgradeTimer: 3
     upgradeCost: 500
     attackDamage: 5
-    attackRange: 2.8
+    attackRange: 3.3
     pebbleSpeed: 6
     pebblePerVolley: 2
     pebbleSplashRadius: 0.19
-    recoilTimer: 2.7
+    cooldownTimer: 1.7
     catapulSpawnPos: {x: 0, y: 0.128, z: 0}
   - levelTower: 3
     upgradeTimer: 4
     upgradeCost: 1500
     attackDamage: 6
-    attackRange: 3
+    attackRange: 3.6
     pebbleSpeed: 6
     pebblePerVolley: 3
-    pebbleSplashRadius: 0.24
-    recoilTimer: 2.4
+    pebbleSplashRadius: 0.23
+    cooldownTimer: 2
     catapulSpawnPos: {x: 0, y: 0.27, z: 0}
   - levelTower: 4
     upgradeTimer: 5
     upgradeCost: 1800
     attackDamage: 8
-    attackRange: 3.3
+    attackRange: 4
     pebbleSpeed: 6
     pebblePerVolley: 3
-    pebbleSplashRadius: 0.3
-    recoilTimer: 2.1
+    pebbleSplashRadius: 0.27
+    cooldownTimer: 2.3
     catapulSpawnPos: {x: 0, y: 0.55, z: 0}

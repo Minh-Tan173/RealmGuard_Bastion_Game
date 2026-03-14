@@ -161,7 +161,11 @@ public class Mage : MonoBehaviour
         foreach (Collider2D enemyDetected in enemyDetectedList) {
             // Duyệt lần lượt enemy trong array để tìm khoảng cách xa nhất tới enemy nằm trong vùng nhìn thấy
 
-            Vector2 dirFromArcherToEnemy = (enemyDetected.transform.position - this.transform.position).normalized;
+            if (enemyDetected == null) {
+                continue;
+            }
+
+            Vector2 dirFromArcherToEnemy = (enemyDetected.transform.position - this.transform.position).normalized; 
 
             if (Vector2.Angle(GetViewDir(), dirFromArcherToEnemy) <= mageTower.GetMageTowerSO().viewAngle / 2f) {
                 // Nếu enemy đó nằm trong vùng nhìn thấy trước mặt (90o)

@@ -14,22 +14,36 @@ public class NextTurnManager : MonoBehaviour, IHasProgressBar
 
     [SerializeField] private Button nextTurnButton;
     [SerializeField] private float nextTurnTimerMax;
+    [SerializeField] private float coinRewardIncreaseRate;
 
     private int currentAlivesEnemy;
 
     private Coroutine currentCoroutine;
     private bool canClickedButton = false;
 
+    private float currentCoinRewardRate;
+
+
     private void Awake() {
 
         Instance = this;
 
+        currentCoinRewardRate = 10; // Mặc định thưởng ban đầu là 10%
+
         nextTurnButton.onClick.AddListener(() => {
 
             if (currentCoroutine != null) {
+
                 StopCoroutine(currentCoroutine);
                 currentCoroutine = null;
             }
+
+            currentCoinRewardRate += coinRewardIncreaseRate;
+
+            // When clicked button --> Get random coin reward
+            float coinGetWhenClickedButton = LevelManager.Instance.GetLevelManagerSO().coinStart * (currentCoinRewardRate / 100);
+
+            LevelManager.Instance.ChangedCoinTo(ILevelManager.CoinChangedState.Increase, coinGetWhenClickedButton);
 
             NextTurn();
         });

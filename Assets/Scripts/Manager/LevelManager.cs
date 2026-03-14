@@ -279,8 +279,6 @@ public class LevelManager : MonoBehaviour
 
     public void ChangedHeartTo(ILevelManager.HeartChangedState heartChangedState) {
 
-        Debug.Log("Decrease");
-
         if (heartChangedState == ILevelManager.HeartChangedState.Decrase) {
             currentHeart -= 1;
             HeartChanged?.Invoke(this, EventArgs.Empty);

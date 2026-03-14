@@ -105,4 +105,8 @@ public class WolfLifeControl : MonoBehaviour, IHasProgressBar
         float healthNormalized = Mathf.Clamp01(this.currentHealth / wolf.GetWolfSO().totalHealth);
         OnChangeProgress?.Invoke(this, new IHasProgressBar.OnChangeProgressEventArgs { progressNormalized = healthNormalized });
     }
+
+    public float GetCurrentHealth() {
+        return this.currentHealth;
+    }
 }

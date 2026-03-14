@@ -59,7 +59,7 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
     [SerializeField] private GuardianTowerUI guardianTowerUI;
     [SerializeField] private AssignPositionZoneVisual assignPositionZoneVisual;
 
-    private ArcherTowerLifeControl archerTowerLifeControl;
+    private GuardianTowerLifeControl guardianTowerLifeControl;
     private Collider2D[] enemyDetectedArray;
     private List<Guardian> guardianList;
 
@@ -89,7 +89,7 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
 
     private void Awake() {
 
-        archerTowerLifeControl = GetComponent<ArcherTowerLifeControl>();
+        guardianTowerLifeControl = GetComponent<GuardianTowerLifeControl>();
 
         guardianTowerDataDict = new Dictionary<ITowerObject.LevelTower, GuardianTowerLevelData>();
 
@@ -431,6 +431,10 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
 
             currentActiveIndex += 1;
 
+            if (currentActiveIndex >= guardianList.Count) {
+                break;
+            }
+
             yield return new WaitForSeconds(currentTowerStatus.respawnTimer);
         }
 
@@ -562,7 +566,7 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
     }
 
     public override void HitDamage(float damageGet) {
-        archerTowerLifeControl.TakeDamage(damageGet);
+        guardianTowerLifeControl.TakeDamage(damageGet);
     }
 
     public override bool IsDeselectLastUI() {
@@ -571,7 +575,7 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
     }
 
     public override bool IsRecoveringHealth() {
-        return archerTowerLifeControl.IsRecoveringHealth();
+        return guardianTowerLifeControl.IsRecoveringHealth();
     }
 
     public void ChangeStateTo(ITowerObject.LevelTower levelTower) {

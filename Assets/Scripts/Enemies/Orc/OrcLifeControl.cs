@@ -108,4 +108,8 @@ public class OrcLifeControl : MonoBehaviour, IHasProgressBar
         float healthNormalized = Mathf.Clamp01(this.currentHealth / orc.GetOrcSO().totalHealth);
         OnChangeProgress?.Invoke(this, new IHasProgressBar.OnChangeProgressEventArgs { progressNormalized = healthNormalized });
     }
+
+    public float GetCurrentHealth() {
+        return this.currentHealth;
+    }
 }

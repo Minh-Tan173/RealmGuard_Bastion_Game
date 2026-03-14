@@ -13,6 +13,8 @@ public class Pebble : MonoBehaviour
     [SerializeField] private float arcHeightFactor;
     [SerializeField] private PebbleVisual pebbleVisual;
 
+    [SerializeField] private float testSizeChecked;
+
     private Catapult catapultShooting;
     private CatapultTower catapultTowerParent;
 
@@ -127,7 +129,7 @@ public class Pebble : MonoBehaviour
         Show();
 
         // Setup Size base on Level
-        currentRadiusCheck = pebbleVisual.GetBaseBoomSize() * GetSplashSize();
+        currentRadiusCheck = GetSplashSize();
 
         StartCoroutine(MovementCoroutine(targetPosition));
 
@@ -158,10 +160,14 @@ public class Pebble : MonoBehaviour
     
     // ----- VISUALIZE -----
     private void OnDrawGizmos() {
-        currentRadiusCheck = 0.6f * 0.25f;
+        
+        if (catapultTowerParent != null) {
 
-        Gizmos.color = Color.red;
-            // Đổi thành Sphere để khớp với OverlapCircleAll
-            Gizmos.DrawWireSphere(this.transform.position, currentRadiusCheck);
+            Gizmos.color = Color.red;
+            Gizmos.DrawWireSphere(this.transform.position, catapultTowerParent.GetCurrentTowerStatus().pebbleSplashRadius);
+        }
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(this.transform.position, testSizeChecked);
     }
 }

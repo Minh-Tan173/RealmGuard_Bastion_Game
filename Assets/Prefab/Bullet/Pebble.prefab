@@ -48,6 +48,7 @@ MonoBehaviour:
   shadowVisual: {fileID: 0}
   arcHeightFactor: 0.25
   pebbleVisual: {fileID: 5292760972407366986}
+  testSizeChecked: 0.19
 --- !u!1 &2703876517730558501
 GameObject:
   m_ObjectHideFlags: 0
@@ -75,7 +76,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.6, y: 0.6, z: 0.6}
+  m_LocalScale: {x: 1.38, y: 1.38, z: 1.38}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3834394022333194714}
@@ -118,9 +119,9 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingLayerID: -934430751
+  m_SortingLayer: 2
+  m_SortingOrder: 3
   m_Sprite: {fileID: -1276027629, guid: 7c67cd1db06c4554ebe8cac6ad85c042, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -254,4 +255,3 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pebble: {fileID: 1721975822937990886}
   boomEffect: {fileID: 4464512145726353979}
-  baseBoomSize: 0.6

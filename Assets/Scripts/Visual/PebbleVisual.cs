@@ -6,7 +6,6 @@ public class PebbleVisual : MonoBehaviour
 {
     [SerializeField] private Pebble pebble;
     [SerializeField] private Transform boomEffect;
-    [SerializeField] private float baseBoomSize;
 
     private const string TRIGGER_EXPLOSION = "TriggerExplosion";
 
@@ -32,7 +31,7 @@ public class PebbleVisual : MonoBehaviour
     private void Pebble_OnResetAnim(object sender, System.EventArgs e) {
 
         // 1.Reset boom effect size
-        boomEffect.localScale = new Vector3(baseBoomSize, baseBoomSize, baseBoomSize);
+        boomEffect.localScale = Vector3.one;
 
         // 2.Reset animator
         animator.Rebind();
@@ -42,13 +41,10 @@ public class PebbleVisual : MonoBehaviour
     private void Pebble_OnExplosionAnim(object sender, System.EventArgs e) {
 
         // 1.Update size base on catapult tower level
-        float newSize = baseBoomSize * pebble.GetSplashSize();
-        //boomEffect.localScale = new Vector3(newSize, newSize, newSize);
+        float newSize = Vector3.one.x + Vector3.one.x * (pebble.GetSplashSize() * 2);
+
+        boomEffect.localScale = new Vector3(newSize, newSize, newSize);
 
         animator.SetTrigger(TRIGGER_EXPLOSION);
-    }
-
-    public float GetBaseBoomSize(){
-        return this.baseBoomSize;
     }
 }

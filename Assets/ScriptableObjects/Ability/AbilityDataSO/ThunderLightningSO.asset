@@ -20,27 +20,27 @@ MonoBehaviour:
   canAttackLayer:
     serializedVersion: 2
     m_Bits: 1088
-  price: 800
+  price: 350
   abilityLevelDataList:
   - level: 1
-    pointUnlock: 1
-    damage: 4
+    pointUnlock: 2
+    damage: 10
     aoeRadius: 1
-    cdTimer: 5
+    cdTimer: 10
     specificData:
       rid: -2
   - level: 2
-    pointUnlock: 2
-    damage: 8
-    aoeRadius: 1
-    cdTimer: 4
+    pointUnlock: 3
+    damage: 13
+    aoeRadius: 1.5
+    cdTimer: 7
     specificData:
       rid: -2
   - level: 3
-    pointUnlock: 3
+    pointUnlock: 4
     damage: 16
-    aoeRadius: 1
-    cdTimer: 3
+    aoeRadius: 2.5
+    cdTimer: 5
     specificData:
       rid: -2
   references:

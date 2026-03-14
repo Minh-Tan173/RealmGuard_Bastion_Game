@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Diagnostics;
 using UnityEngine;
 using UnityEngine.Analytics;
 
@@ -267,7 +266,7 @@ public class Catapult : MonoBehaviour
 
         // 3. PHASE 3: Cluster Analysis - The "Smart" Part - Chọn target có tổng điểm vùng nổ (tổng Vi cao nhất)
 
-        float simulateRadiusCheck = pebbleList[0].GetPebbleVisual().GetBaseBoomSize() * catapultTower.GetCurrentTowerStatus().pebbleSplashRadius;
+        float simulateRadiusCheck = catapultTower.GetCurrentTowerStatus().pebbleSplashRadius;
         float sqrRadiusCheck = simulateRadiusCheck * simulateRadiusCheck;
 
         float highestClusterScore = -Mathf.Infinity;
@@ -458,7 +457,7 @@ public class Catapult : MonoBehaviour
 
             countOfPebbleAgain = currentStatus.pebblePerVolley - 1; // count of pebble except first one
             angleStep = 360 / countOfPebbleAgain;
-            radius = pebbleList[0].GetPebbleVisual().GetBaseBoomSize() * catapultTower.GetCurrentTowerStatus().pebbleSplashRadius; // Khoảng cách để tận dụng tối đa kích thước vụ nổ của pebble
+            radius = catapultTower.GetCurrentTowerStatus().pebbleSplashRadius; // Khoảng cách để tận dụng tối đa kích thước vụ nổ của pebble
 
         }
 
@@ -468,13 +467,12 @@ public class Catapult : MonoBehaviour
                 // If is first pebble
 
                 pebbleList[currentPebbleIndex].StartMovement(leadOffsetTargetPos);
-
             }
             else {
                 // If is other pebble
 
                 float currentAngle = randomStartAngle + angleStep * (i - 1);
-                Vector2 offset = Quaternion.Euler(0f, 0f, currentAngle) * Vector2.right * radius;
+                Vector2 offset = Quaternion.Euler(0f, 0f, currentAngle) * Vector2.right * (radius * 2);
                 Vector3 pebbleExploPos = leadOffsetTargetPos + new Vector3(offset.x, offset.y, 0f);
 
                 pebbleList[currentPebbleIndex].StartMovement(pebbleExploPos);

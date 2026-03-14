@@ -300,9 +300,9 @@ public class Slime : BaseEnemy
         return moveDir * slimeSO.moveSpeed;
     }
 
-    public override float GetEnemyProgress() {
+    public override float  GetEnemyProgress() {
 
-        if (targetIndex <= 0f) {
+        if (targetIndex <= 0) {
             return 0f;
         }
 

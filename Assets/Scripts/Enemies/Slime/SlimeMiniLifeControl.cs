@@ -90,4 +90,8 @@ public class SlimeMiniLifeControl : MonoBehaviour, IHasProgressBar
     public BaseEnemy.EnemyLifeState GetCurrentSlimeLifeState() {
         return this.currentSlimeLifeState;
     }
+
+    public float GetCurrentHealth() {
+        return this.currentHealth;
+    }
 }

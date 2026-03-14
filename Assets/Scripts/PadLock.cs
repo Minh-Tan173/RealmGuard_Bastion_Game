@@ -45,7 +45,7 @@ public class PadLock : MonoBehaviour
 
     private IEnumerator UnlockCoroutine(Action callbackAction) {
 
-        yield return new WaitForSeconds(0.1f);
+        yield return new WaitForSecondsRealtime(0.1f);
 
         // 1. Unlock Padlock animation
         int totalPadLockFrame = padLockSpriteList.Count;
@@ -55,17 +55,17 @@ public class PadLock : MonoBehaviour
 
             padLockImage.sprite = padLockSpriteList[currentFrame];
 
-            yield return new WaitForSeconds(frameTimer);
+            yield return new WaitForSecondsRealtime(frameTimer);
         }
 
 
         // 2. PadLock and Chain dissapear
-        yield return null;
+        yield return new WaitForEndOfFrame();
 
         canvasGroup.alpha = 1f;
         float dispapointTimer = 0.2f;
 
-        Sequence disapperSequence = DOTween.Sequence();
+        Sequence disapperSequence = DOTween.Sequence().SetUpdate(true);
 
         disapperSequence.Append(canvasGroup.DOFade(0f, dispapointTimer));
 
@@ -73,7 +73,7 @@ public class PadLock : MonoBehaviour
 
         callbackAction.Invoke();
 
-        yield return null;
+        yield return new WaitForEndOfFrame();
 
         this.gameObject.SetActive(false);
     }

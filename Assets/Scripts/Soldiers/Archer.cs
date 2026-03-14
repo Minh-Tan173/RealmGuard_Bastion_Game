@@ -164,6 +164,10 @@ public class Archer : MonoBehaviour {
         foreach (Collider2D enemyDetected in enemyDetectedList) {
             // Duyệt lần lượt enemy trong array để tìm khoảng cách gần nhất tới enemy nằm trong vùng nhìn thấy
 
+            if (enemyDetected == null) {
+                continue;
+            }
+
             Vector2 dirFromArcherToEnemy = (enemyDetected.transform.position - this.transform.position).normalized;
 
             if (Vector2.Angle(GetViewDir(), dirFromArcherToEnemy) > archerTower.GetArcherTowerSO().viewAngle / 2f) {

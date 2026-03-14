@@ -425,6 +425,30 @@ public class Orc : BaseEnemy, ICanAttackPhysic
         return this.currentOrcDirection;
     }
 
+    public override float GetEnemyHealth() {
+        return orcLifeControl.GetCurrentHealth();
+    }
+
+    public override float GetEnemyProgress() {
+
+        if (targetIndex <= 0) {
+            return 0f;
+        }
+
+        // 1 Prepared Data
+        List<Transform> waypointList = PathGenerator.Instance.GetWaypointList();
+        Dictionary<Transform, float> waypointCumulativeDistDict = GridManager.Instance.GetWaypointCumulativeDistDict();
+
+        // 2 Counting
+        Transform waypointBefore = waypointList[targetIndex - 1];
+        int waypointLastIndex = waypointList.Count - 1;
+        Transform waypointLast = waypointList[waypointLastIndex];
+
+        float totalEnemyMoved = waypointCumulativeDistDict[waypointBefore] + Vector3.Distance(waypointBefore.position, this.transform.position); // Quãng đường Enemy đã đi được
+
+        return totalEnemyMoved;
+    }
+
     public override Vector3 GetEnemyVelocity() {
 
         if (!canMove || waypointList == null || waypointList.Count == 0) {

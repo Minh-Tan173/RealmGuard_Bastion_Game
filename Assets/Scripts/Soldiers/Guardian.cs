@@ -477,6 +477,8 @@ public class Guardian : MonoBehaviour {
 
     public void CommanMoveToIntentTarget(BaseEnemy intentTarget) {
 
+        Debug.Log("Move to intent target");
+
         if (guardianLifeControl.IsDeath()) {
             return;
         }

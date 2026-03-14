@@ -12,6 +12,27 @@ PrefabInstance:
       propertyPath: parent
       value: 
       objectReference: {fileID: 2836987239984167797}
+    - target: {fileID: 3652169763705034043, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_text
+      value: 'Wolf has a "Frenzy Anomaly": Occasionally howls and enters a berserk
+        state, shredding nearby towers with rapid bites for a short burst.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652169763705034043, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_fontSize
+      value: 6.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652169763705034043, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 6.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652169763705034043, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652169763705034043, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5460174426249775275, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -100
@@ -264,6 +285,31 @@ PrefabInstance:
       propertyPath: anomalyIntroductionAnimator.localBehaviorList.Array.data[5]
       value: 
       objectReference: {fileID: -812108050, guid: 9dd981c7a94de55448a9c4adec6d30ec, type: 3}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_text
+      value: Wolf is a fast ground enemy with moderate HP. It races ahead and slips
+        through weak defenses if not stopped quickly.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_fontSize
+      value: 6.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 6.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_wordWrappingRatios
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

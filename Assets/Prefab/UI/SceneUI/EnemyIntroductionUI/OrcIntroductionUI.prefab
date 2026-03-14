@@ -8,6 +8,27 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3652169763705034043, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_text
+      value: 'Orc has a "Thunderstrike Anomaly":  Upon death, unleashes a powerful
+        lightning strike dealing massive damage to nearby soldiers and towers.'
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652169763705034043, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_fontSize
+      value: 4.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652169763705034043, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 4.93
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652169763705034043, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 3652169763705034043, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5556980418536530815, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
       propertyPath: m_SizeDelta.x
       value: 48
@@ -216,6 +237,27 @@ PrefabInstance:
       propertyPath: anomalyIntroductionAnimator.localBehaviorList.Array.data[5]
       value: 
       objectReference: {fileID: -1306306545, guid: 4e790b381f0d59c4ab51fb95dab2e3ee, type: 3}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_text
+      value: Orc is a slow, heavily armored ground enemy with high HP. It trudges
+        forward steadily and punishes soldiers who get too close.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_fontSize
+      value: 6.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 6.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_HorizontalAlignment
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

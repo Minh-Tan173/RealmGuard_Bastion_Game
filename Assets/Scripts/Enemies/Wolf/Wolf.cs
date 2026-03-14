@@ -543,6 +543,30 @@ public class Wolf : BaseEnemy, ICanAttackPhysic
         return this.currentWolfDirection;
     }
 
+    public override float GetEnemyHealth() {
+        return wolfLifeControl.GetCurrentHealth();
+    }
+
+    public override float GetEnemyProgress() {
+
+        if (targetWaypointIndex <= 0) {
+            return 0f;
+        }
+
+        // 1 Prepared Data
+        List<Transform> waypointList = PathGenerator.Instance.GetWaypointList();
+        Dictionary<Transform, float> waypointCumulativeDistDict = GridManager.Instance.GetWaypointCumulativeDistDict();
+
+        // 2 Counting
+        Transform waypointBefore = waypointList[targetWaypointIndex - 1];
+        int waypointLastIndex = waypointList.Count - 1;
+        Transform waypointLast = waypointList[waypointLastIndex];
+
+        float totalEnemyMoved = waypointCumulativeDistDict[waypointBefore] + Vector3.Distance(waypointBefore.position, this.transform.position); // Quãng đường Enemy đã đi được
+
+        return totalEnemyMoved;
+    }
+
     public void SetLockedTarget(bool isLockedTarget, Guardian guardian) {
         this.isLockedByTarget = isLockedTarget;
     }

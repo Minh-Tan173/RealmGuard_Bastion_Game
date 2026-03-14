@@ -24,7 +24,7 @@ MonoBehaviour:
   abilityLevelDataList:
   - level: 1
     pointUnlock: 1
-    damage: 5
+    damage: 3
     aoeRadius: 1
     cdTimer: 5
     specificData:
@@ -38,7 +38,7 @@ MonoBehaviour:
       rid: 6998439430126829569
   - level: 3
     pointUnlock: 3
-    damage: 6
+    damage: 8
     aoeRadius: 1
     cdTimer: 3
     specificData:
@@ -49,11 +49,11 @@ MonoBehaviour:
     - rid: 6998439430126829568
       type: {class: SpikeTrapSpecificData, ns: , asm: Assembly-CSharp}
       data:
-        strikeCount: 1
+        strikeCount: 3
     - rid: 6998439430126829569
       type: {class: SpikeTrapSpecificData, ns: , asm: Assembly-CSharp}
       data:
-        strikeCount: 3
+        strikeCount: 6
     - rid: 6998439430126829570
       type: {class: SpikeTrapSpecificData, ns: , asm: Assembly-CSharp}
       data:

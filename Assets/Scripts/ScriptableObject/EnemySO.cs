@@ -24,6 +24,7 @@ public class EnemySO : ScriptableObject
     public float radiusOffset;
 
     [Header("Attack Behavior")]
+    public float anomalyRate;
     public float detectedZone;
     public float attackDamage;
 

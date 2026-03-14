@@ -10,6 +10,7 @@ using UnityEngine.UI;
 
 public class EnemyIntroductionUI : BaseIntroductionUI, IHasPadLock
 {
+
     public static EnemyIntroductionUI Instance { get; private set; }
 
     public event EventHandler<IHasPadLock.UnlockPadLockEventArgs> UnlockPadLock;
@@ -85,9 +86,11 @@ public class EnemyIntroductionUI : BaseIntroductionUI, IHasPadLock
 
     private IEnumerator UpdateVisualCoroutine() {
 
+        Time.timeScale = 0f;
+
         closeButton.interactable = false;
 
-        yield return null; // Wait 1 frame to ensure data and enemy status has updated
+        yield return new WaitForEndOfFrame(); // Wait 1 frame to ensure data and enemy status has updated
 
         // 1. Update local data
         UpdateVisual();
@@ -97,20 +100,23 @@ public class EnemyIntroductionUI : BaseIntroductionUI, IHasPadLock
         // 2. DOTween animation
         rectTransform.anchoredPosition = new Vector2(0, startPosY);
 
-        Sequence slimeSequence = DOTween.Sequence();
+        Sequence enemySequence = DOTween.Sequence().SetUpdate(true);
 
-        slimeSequence.Append(
+        enemySequence.Append(
             rectTransform.DOAnchorPosY(0, dropDuration).SetEase(Ease.InQuad)
         );
 
-        slimeSequence.Append(
+        enemySequence.Append(
             rectTransform.DOPunchScale(punchStrength, punchDuration)
         );
 
-        yield return slimeSequence.WaitForCompletion();
+        yield return enemySequence.WaitForCompletion();
 
         // 3. Unlock PadLock animation - If is introduced new anomaly
-        if (!HasAnomaly()) { yield break; }
+        if (!HasAnomaly()){
+
+            closeButton.interactable = true;
+        }
 
         if (SaveData.IsUnlockAnomaly(enemySO)) {
 
@@ -118,7 +124,6 @@ public class EnemyIntroductionUI : BaseIntroductionUI, IHasPadLock
                 callbackAction = () => {
 
                     anomalyButton.interactable = true;
-                    closeButton.interactable = true;
                     closeButton.interactable = true;
                 }
             });
@@ -139,27 +144,29 @@ public class EnemyIntroductionUI : BaseIntroductionUI, IHasPadLock
         if (isShowAnomalyUI) {
             ToggleAnomalyUI();
 
-            yield return new WaitForSeconds(showDuration);
+            yield return new WaitForSecondsRealtime(showDuration);
         }
 
-        yield return null;
+        yield return new WaitForEndOfFrame();
 
         // 2. DOTween progress
-        Sequence slimeSequence = DOTween.Sequence();
+        Sequence enemySequence = DOTween.Sequence().SetUpdate(true);
 
-        slimeSequence.Append(
+        enemySequence.Append(
             rectTransform.DOPunchScale(punchStrength, punchDuration)
         );
 
-        slimeSequence.Append(
+        enemySequence.Append(
             rectTransform.DOAnchorPosY(startPosY, dropDuration).SetEase(Ease.InQuad)
         );
 
-        yield return slimeSequence.WaitForCompletion();
+        yield return enemySequence.WaitForCompletion();
 
         actionCallback?.Invoke();
 
         LevelManager.Instance.SetIsShowingEnemyIntroductionUI(false);
+
+        Time.timeScale = 1f;
 
         Destroy(this.gameObject);
 
@@ -179,7 +186,7 @@ public class EnemyIntroductionUI : BaseIntroductionUI, IHasPadLock
             int countLoop = 0;
             List<Sprite> localBehaviorList = anomalyIntroductionAnimator.localBehaviorList;
 
-            while(countLoop < 5) {
+            while (countLoop < 5) {
 
                 currentFrame = 0;
 
@@ -188,15 +195,15 @@ public class EnemyIntroductionUI : BaseIntroductionUI, IHasPadLock
                     anomalyImage.sprite = localBehaviorList[currentFrame];
                     currentFrame += 1;
 
-                    yield return new WaitForSeconds(frameRate);
+                    yield return new WaitForSecondsRealtime(frameRate);
                 }
 
                 countLoop += 1;
-                yield return new WaitForSeconds(frameRate);
+                yield return new WaitForSecondsRealtime(frameRate);
             }
             
 
-            yield return new WaitForSeconds(changeBehaviorTimer);
+            yield return new WaitForSecondsRealtime(changeBehaviorTimer);
 
             // Anomaly Behavior
             currentFrame = 0;
@@ -207,15 +214,16 @@ public class EnemyIntroductionUI : BaseIntroductionUI, IHasPadLock
                 anomalyImage.sprite = anomalyBehaviorList[currentFrame];
                 currentFrame += 1;
 
-                yield return new WaitForSeconds(frameRate);
+                yield return new WaitForSecondsRealtime(frameRate);
             }
 
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSecondsRealtime(1f);
         }
 
     }
 
     private void UpdateVisual() {
+
         // Introduction UI
         titleText.text = $"new enemy: {enemySO.enemyName}";
         healthText.text = $"{enemySO.totalHealth}";
@@ -265,13 +273,14 @@ public class EnemyIntroductionUI : BaseIntroductionUI, IHasPadLock
             anomalyDescriptionText.text = "";
 
             // 2. DOTween anim happen
-            Sequence anomalyUIShowSequence = DOTween.Sequence();
+            Sequence anomalyUIShowSequence = DOTween.Sequence().SetUpdate(true);
 
             anomalyUIShowSequence.Append(anomalyUIRect.DOAnchorPos(endPoint, showDuration).SetEase(Ease.OutBack));
 
             string fullText = $"{enemySO.anomalyDescription}"; 
 
             anomalyUIShowSequence.Append(DOTween.To(() => anomalyDescriptionText.text,x => anomalyDescriptionText.text = x,fullText, 0.5f).SetEase(Ease.Linear));
+
         }
         else {
 
@@ -279,11 +288,12 @@ public class EnemyIntroductionUI : BaseIntroductionUI, IHasPadLock
             anomalyUIRect.anchoredPosition = endPoint;
 
             // 2. DOTween anim happen
-            Sequence anomalyUIHideSequence = DOTween.Sequence();
+            Sequence anomalyUIHideSequence = DOTween.Sequence().SetUpdate(true);
             anomalyUIHideSequence.Append(anomalyUIRect.DOAnchorPos(startPoint, showDuration).SetEase(Ease.InBack)).OnComplete(() => {
 
                 anomalyUIRect.transform.gameObject.SetActive(false);
             });
+
         }
     }
 

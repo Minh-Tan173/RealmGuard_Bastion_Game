@@ -142,6 +142,24 @@ PrefabInstance:
       propertyPath: m_Interactable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_text
+      value: Bee is an extremely fast flying enemy with low HP. If not intercepted
+        early, it can slip past your defenses and strike your base before you have
+        time to react.
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_fontSize
+      value: 6.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 6.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 7584033295902870879, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}
+      propertyPath: m_VerticalAlignment
+      value: 512
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 1475408842126554929, guid: ca6a9fe7d09cffa4383f2c9030f8635f, type: 3}

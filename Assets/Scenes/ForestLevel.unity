@@ -2445,6 +2445,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nextTurnButton: {fileID: 172659124}
   nextTurnTimerMax: 10
+  coinRewardIncreaseRate: 2
 --- !u!1 &1380528549
 GameObject:
   m_ObjectHideFlags: 0
