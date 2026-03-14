@@ -84,4 +84,4 @@ MonoBehaviour:
     newEnemy: {fileID: 0}
     newEnemyAnomaly: {fileID: 0}
   newTower: 2
-  pointGetWhenWin: 1
+  pointGetWhenWin: 2

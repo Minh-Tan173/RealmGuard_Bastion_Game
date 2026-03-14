@@ -17,20 +17,29 @@ MonoBehaviour:
   gameLevel: 4
   startGameTimer: 1
   endTurnTimer: 1
-  coinStart: 1200
+  coinStart: 1000
   numberOfHeart: 20
   waveScriptList:
-  - waveName: 
-    enemyGroupList: []
+  - waveName: Wave 1
+    enemyGroupList:
+    - enemyTypeSO: {fileID: 11400000, guid: 54b95068ea5cb9346b3cb6477bd61b50, type: 2}
+      numberEnemy: 5
+      cdSpawnTimer: 2
+    newEnemy: {fileID: 0}
+    newEnemyAnomaly: {fileID: 11400000, guid: 54b95068ea5cb9346b3cb6477bd61b50, type: 2}
+  - waveName: Wave 2
+    enemyGroupList:
+    - enemyTypeSO: {fileID: 11400000, guid: 54b95068ea5cb9346b3cb6477bd61b50, type: 2}
+      numberEnemy: 10
+      cdSpawnTimer: 2
     newEnemy: {fileID: 0}
     newEnemyAnomaly: {fileID: 0}
-  - waveName: 
-    enemyGroupList: []
-    newEnemy: {fileID: 0}
-    newEnemyAnomaly: {fileID: 0}
-  - waveName: 
-    enemyGroupList: []
+  - waveName: Wave 3
+    enemyGroupList:
+    - enemyTypeSO: {fileID: 11400000, guid: 54b95068ea5cb9346b3cb6477bd61b50, type: 2}
+      numberEnemy: 15
+      cdSpawnTimer: 2
     newEnemy: {fileID: 0}
     newEnemyAnomaly: {fileID: 0}
   newTower: 4
-  pointGetWhenWin: 1
+  pointGetWhenWin: 4

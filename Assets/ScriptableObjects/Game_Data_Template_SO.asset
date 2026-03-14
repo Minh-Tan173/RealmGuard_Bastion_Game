@@ -26,6 +26,14 @@ MonoBehaviour:
     gameLevel: 2
     levelManagerSO: {fileID: 11400000, guid: a87b542fe31b51c429f748e526ec45ff, type: 2}
     sceneToLoad: 3
+  - biomeType: 1
+    gameLevel: 3
+    levelManagerSO: {fileID: 11400000, guid: cf877b118aff0ff498a756796845e38b, type: 2}
+    sceneToLoad: 3
+  - biomeType: 1
+    gameLevel: 4
+    levelManagerSO: {fileID: 11400000, guid: f1fa023cf3ff8e74f88e2f3d6d910ea7, type: 2}
+    sceneToLoad: 3
   abilitySOList:
   - {fileID: 11400000, guid: 4d33b877991f5db408435c82846172c2, type: 2}
   - {fileID: 11400000, guid: 53576bb12f955204689e243a00eac1b5, type: 2}
