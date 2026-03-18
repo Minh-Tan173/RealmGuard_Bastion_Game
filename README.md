@@ -219,8 +219,8 @@ Tower System
 
 Enemy System
 ├── BaseEnemy
-├── EnemyMovement
-└── EnemyCombat
+├── EnemyBehavior
+└── EnemyLifeControl
 
 Ability System
 ├── BaseAbility
