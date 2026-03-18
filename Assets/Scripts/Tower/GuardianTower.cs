@@ -41,6 +41,8 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
     public event EventHandler OnUpgradeLevel4;
 
     // Guardian Control Event
+    public event EventHandler OnReleaseGuardianTarget;
+
     //public event EventHandler<OnResetViewDirectionEventArgs> OnResetViewDirection;
     //public class OnResetViewDirectionEventArgs : EventArgs {
     //    public Vector3 centerGuardPos;
@@ -128,6 +130,8 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
     private void AssignPositionZoneVisual_OnMoveCommand(object sender, AssignPositionZoneVisual.OnMoveCommandEventArgs e) {
 
         currentCenterGuardPos = e.mouseClickedPos;
+
+        OnReleaseGuardianTarget?.Invoke(this, EventArgs.Empty);
 
         ArrangeAliveSquadToSingleRing(e.mouseClickedPos);
     }
@@ -405,7 +409,6 @@ public class GuardianTower : BaseTower, IHasClockTimer, ITowerObject
 
             guardianAliveList[i].CommandMoveToGuardPos(newGuardPos, centerSquadPos);
         }
-
     }
 
     private IEnumerator DeploySquadCoroutine() {

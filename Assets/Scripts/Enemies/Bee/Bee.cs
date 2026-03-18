@@ -124,8 +124,20 @@ public class Bee : BaseEnemy
             randomTargetTimer -= Time.deltaTime;
 
             if (randomTargetTimer <= 0f) {
-                targetPos = RandomWaypointPos(waypointList[targetIndex]);
-                
+
+                float distanceToTarget = (targetPos - this.transform.position).sqrMagnitude;
+                float distanceCantChangedTarget = 1f;
+
+                if (distanceToTarget <= distanceCantChangedTarget * distanceCantChangedTarget) {
+                    // If distance to target <= 1f ---> Near target point
+
+                    randomTargetTimer = beeSO.randomTargetTimer;
+                }
+                else {
+                    // Far target point
+
+                    targetPos = RandomWaypointPos(waypointList[targetIndex]);
+                }
             }
         }
 

@@ -65,6 +65,7 @@ public class Guardian : MonoBehaviour {
 
         guardianTower.OnUpgradeLevelProgress += GuardianTower_OnUpgradeLevelProgress;
         guardianTower.OnResetDataGuardian += GuardianTower_OnResetDataGuardian;
+        guardianTower.OnReleaseGuardianTarget += GuardianTower_OnReleaseGuardianTarget;
 
         guardianLifeControl.OnDeath += GuardianLifeControl_OnDeath;
 
@@ -74,8 +75,21 @@ public class Guardian : MonoBehaviour {
 
         guardianTower.OnUpgradeLevelProgress -= GuardianTower_OnUpgradeLevelProgress;
         guardianTower.OnResetDataGuardian -= GuardianTower_OnResetDataGuardian;
+        guardianTower.OnReleaseGuardianTarget -= GuardianTower_OnReleaseGuardianTarget;
 
         guardianLifeControl.OnDeath -= GuardianLifeControl_OnDeath;
+
+    }
+
+    private void GuardianTower_OnReleaseGuardianTarget(object sender, EventArgs e) {
+        // When assign new guard position
+
+        if (currentTarget != null && currentTarget.TryGetComponent<ICanAttackPhysic>(out ICanAttackPhysic target)) {
+
+            target.SetLockedTarget(false, null);
+
+            currentTarget = null;
+        }
 
     }
 
@@ -476,8 +490,6 @@ public class Guardian : MonoBehaviour {
     }
 
     public void CommanMoveToIntentTarget(BaseEnemy intentTarget) {
-
-        Debug.Log("Move to intent target");
 
         if (guardianLifeControl.IsDeath()) {
             return;

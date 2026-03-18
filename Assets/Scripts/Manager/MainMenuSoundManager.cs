@@ -18,7 +18,7 @@ public class MainMenuSoundManager : MonoBehaviour
     public float GetSFXVolume() {
 
         return SaveData.GetSFXVolumeSaved() * Convert.ToInt32(!SaveData.IsMutedSFX());
-    }
+    }   
 
     public AudioClipRefsSO GetAudioClipRefsSO() {
         return this.audioClipRefsSO;

@@ -180,8 +180,21 @@ public class Wolf : BaseEnemy, ICanAttackPhysic
         else {
 
             if (randomTargetTimer <= 0f) {
-                // ReRandom target
-                targetPos = RandomWaypointPos(waypointList[targetWaypointIndex]);
+                // Random target
+
+                float distanceToTarget = (targetPos - this.transform.position).sqrMagnitude;
+                float distanceCantChangedTarget = 1f;
+
+                if (distanceToTarget <= distanceCantChangedTarget * distanceCantChangedTarget) {
+                    // If distance to target <= 1f ---> Near target point
+
+                    randomTargetTimer = wolfSO.randomTargetTimer;
+                }
+                else {
+                    // Far target point
+
+                    targetPos = RandomWaypointPos(waypointList[targetWaypointIndex]);
+                }
             }
         }
 

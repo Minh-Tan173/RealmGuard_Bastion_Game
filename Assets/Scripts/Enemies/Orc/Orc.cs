@@ -10,6 +10,8 @@ public class Orc : BaseEnemy, ICanAttackPhysic
         Attack
     }
 
+    public event EventHandler OnThunderStrikeAnomalySFX;
+
     public event EventHandler ChangedLeftDir;
     public event EventHandler ChangedRightDir;
     public event EventHandler OnAttackAnim;
@@ -184,7 +186,21 @@ public class Orc : BaseEnemy, ICanAttackPhysic
             randomTargetTimer -= Time.deltaTime;
 
             if (randomTargetTimer <= 0f) {
-                targetPos = RandomWaypointPos(waypointList[targetIndex]);
+                // When out of randomTargetTimer
+
+                float distanceToTarget = (targetPos - this.transform.position).sqrMagnitude;
+                float distanceCantChangedTarget = 1f;
+
+                if (distanceToTarget <= distanceCantChangedTarget * distanceCantChangedTarget) {
+                    // If distance to target <= 1f ---> Near target point
+
+                    randomTargetTimer = orcSO.randomTargetTimer;
+                }
+                else {
+                    // Far target point
+
+                    targetPos = RandomWaypointPos(waypointList[targetIndex]);
+                }
 
             }
         }
@@ -271,6 +287,12 @@ public class Orc : BaseEnemy, ICanAttackPhysic
 
         // Anomaly Setup
         Transform thunderLightningAnomalyTransform = Instantiate(thunderLightningAnomaly);
+        ThunderStrikeAnomalySFX thunderStrikeAnomalySFX = thunderLightningAnomalyTransform.GetComponentInChildren<ThunderStrikeAnomalySFX>();
+        thunderStrikeAnomalySFX.SetOrcParent(this);
+
+        yield return null;
+
+        OnThunderStrikeAnomalySFX?.Invoke(this, EventArgs.Empty);
 
         if (!currentTarget.GetGuardianLifeControl().IsDeath()) {
             // If current guardian is not death
@@ -466,6 +488,19 @@ public class Orc : BaseEnemy, ICanAttackPhysic
     }
 
     public void SetLockedTarget(bool isLockedTarget, Guardian guardian) {
+
+        if (isLockedTarget == false) {
+            if (currentBehavior == OrcBehavior.Attack && currentTarget != null && currentCoroutine != null) {
+
+                StopCoroutine(currentCoroutine);
+                currentCoroutine = null;
+
+                currentTarget = null;
+
+                ChangeOrcBehaviorTo(OrcBehavior.Walk);
+            }
+        }
+
         this.isLockedByTarget = isLockedTarget;
         this.currentTarget = guardian;
     }
