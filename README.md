@@ -1,4 +1,7 @@
 # 1: Realmguard Bastion
+
+### Link Itch: https://minh-tan173.itch.io/realmguard-bastion
+
 Realmguard Bastion is a 2D Tower Defense game developed using the Unity Engine.
 The project was developed with the goal of researching and implementing key gameplay systems in tower defense games, such as:
 * Tower Combat System
