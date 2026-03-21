@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,6 +27,7 @@ public class LevelManagerUI : MonoBehaviour, IHasProgressBar
     [Header("Text")]
     [SerializeField] private TextMeshProUGUI numberOfWaveText;
     [SerializeField] private TextMeshProUGUI numberOfCoinText;
+    [SerializeField] private TextMeshProUGUI heathText;
 
     private CanvasGroup canvasGroup;
 
@@ -82,11 +84,15 @@ public class LevelManagerUI : MonoBehaviour, IHasProgressBar
 
         OnChangeProgress?.Invoke(this, new IHasProgressBar.OnChangeProgressEventArgs { progressNormalized = currentHeart / maxNumberOfHeart});
 
+        UpdateVisual();
+        
     }
 
     private IEnumerator ShowCoroutine() {
+        
         // After Show
         OnChangeProgress?.Invoke(this, new IHasProgressBar.OnChangeProgressEventArgs { progressNormalized = 1f });
+
         UpdateVisual();
 
         yield return null;
@@ -113,10 +119,30 @@ public class LevelManagerUI : MonoBehaviour, IHasProgressBar
 
     public void UpdateVisual() {
 
-        // HUD
-        float numberOfCoin = LevelManager.Instance.GetCurrentCoin();
-        numberOfCoinText.text = $"{numberOfCoin}$";
+        // Health
+        int currentHealth = Mathf.FloorToInt(LevelManager.Instance.GetCurrentHeart());
+        string currentHealthText = "";
 
+        if (currentHealth >= 10) {
+
+            currentHealthText = $"{currentHealth} / {LevelManager.Instance.GetLevelManagerSO().numberOfHeart}";
+        }
+        else if (currentHealth > 0 && currentHealth < 10){
+
+            currentHealthText = $"0{currentHealth} / {LevelManager.Instance.GetLevelManagerSO().numberOfHeart}";
+        }
+        else {
+
+            currentHealthText = $"00 / {LevelManager.Instance.GetLevelManagerSO().numberOfHeart}";
+        }
+
+        heathText.text = currentHealthText;
+
+        // Coin
+        float numberOfCoin = LevelManager.Instance.GetCurrentCoin();
+        numberOfCoinText.text = $"{numberOfCoin}";
+
+        // Wave
         numberOfWaveText.text = $"Wave \n {LevelManager.Instance.GetCurrentWave()} / {LevelManager.Instance.GetLevelManagerSO().waveScriptList.Count}";
     }
 

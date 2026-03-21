@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class HomeBase : MonoBehaviour
 {
+    public static HomeBase Instance { get; private set; }
 
     [SerializeField] private LayerMask canTakeDamageByLayer;
 
@@ -11,6 +12,8 @@ public class HomeBase : MonoBehaviour
     private bool hasTakeDamage;
 
     private void Awake() {
+
+        Instance = this;
 
         boxCollider = GetComponent<BoxCollider2D>();
         hasTakeDamage = false;
@@ -29,25 +32,25 @@ public class HomeBase : MonoBehaviour
 
     private void Update() {
 
-        Collider2D enemy = Physics2D.OverlapBox(this.transform.position, boxCollider.size, angle: 0f, canTakeDamageByLayer);
+        //Collider2D enemy = Physics2D.OverlapBox(this.transform.position, boxCollider.size, angle: 0f, canTakeDamageByLayer);
 
-        if (enemy != null) {
+        //if (enemy != null) {
 
-            if (enemy.TryGetComponent<BaseEnemy>(out BaseEnemy baseEnemy)) {
+        //    if (enemy.TryGetComponent<BaseEnemy>(out BaseEnemy baseEnemy)) {
 
-                if (!hasTakeDamage) {
+        //        if (!hasTakeDamage) {
 
-                    hasTakeDamage = true;
+        //            hasTakeDamage = true;
 
-                    TakeDame();
-                }
+        //            ApplyDamage();
+        //        }
 
-            }
+        //    }
 
-        }
-        else {
-            hasTakeDamage = false;
-        }
+        //}
+        //else {
+        //    hasTakeDamage = false;
+        //}
 
     }
 
@@ -60,7 +63,7 @@ public class HomeBase : MonoBehaviour
 
     }
 
-    private void TakeDame() {
+    public void ApplyDamage() {
 
         LevelManager.Instance.ChangedHeartTo(ILevelManager.HeartChangedState.Decrase);
 

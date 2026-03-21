@@ -55,6 +55,8 @@ public class SlimeMini : BaseEnemy
             if (targetIndex == waypointList.Count - 1) {
                 // If reach last index
 
+                HomeBase.Instance.ApplyDamage();
+
                 OnDestroySelf();
 
                 return;

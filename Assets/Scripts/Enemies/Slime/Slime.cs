@@ -122,6 +122,8 @@ public class Slime : BaseEnemy
 
                 slimeLifeControl.ChangeLifeStateTo(BaseEnemy.EnemyLifeState.Despawn);
 
+                HomeBase.Instance.ApplyDamage();
+
                 return;
 
             }

@@ -167,6 +167,8 @@ public class Orc : BaseEnemy, ICanAttackPhysic
 
                 orcLifeControl.ChangeLifeStateTo(EnemyLifeState.Despawn);
 
+                HomeBase.Instance.ApplyDamage();
+
                 return;
 
             }

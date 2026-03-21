@@ -116,6 +116,7 @@ MonoBehaviour:
   dropDuration: 0.35
   punchStrength: {x: 0.5, y: -0.5, z: 0}
   punchDuration: 0.4
+  worldMapPrefab: {fileID: 4877012218312444261, guid: e46987906aaab5048989d9eb97e6165e, type: 3}
 --- !u!1 &1133616195985322513
 GameObject:
   m_ObjectHideFlags: 0

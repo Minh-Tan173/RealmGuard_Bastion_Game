@@ -33,6 +33,9 @@ public class GameWinUI : MonoBehaviour
     [SerializeField] private Vector3 punchStrength;
     [SerializeField] private float punchDuration;
 
+    [Header("World Map prefab")]
+    [SerializeField] private Transform worldMapPrefab;
+
     private CanvasGroup canvasGroup;
 
     private void Awake() {
@@ -41,12 +44,7 @@ public class GameWinUI : MonoBehaviour
 
         nextLevelButton.onClick.AddListener(() => {
 
-            OnClickedButton(() => {
-
-                LevelData nextLevelData = SaveData.GetNextLevelData(LevelManager.Instance.GetLevelManagerSO());
-
-                Loader.Load(nextLevelData);
-            });
+            Instantiate(worldMapPrefab, this.transform.parent);
 
         });
 

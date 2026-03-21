@@ -101,9 +101,11 @@ public class Bee : BaseEnemy
             // If reachingTargetPoint
 
             if (targetIndex == waypointList.Count - 1) {
-                // If reach last index
+                // If reach last index ~ HomeBase
 
                 beeLifeControl.ChangeLifeStateTo(EnemyLifeState.Despawn);
+
+                HomeBase.Instance.ApplyDamage();
 
                 return;
 

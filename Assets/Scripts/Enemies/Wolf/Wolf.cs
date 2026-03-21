@@ -164,6 +164,8 @@ public class Wolf : BaseEnemy, ICanAttackPhysic
 
                 wolfLifeControl.ChangeLifeStateTo(BaseEnemy.EnemyLifeState.Despawn);
 
+                HomeBase.Instance.ApplyDamage();
+
                 return; 
 
             }
