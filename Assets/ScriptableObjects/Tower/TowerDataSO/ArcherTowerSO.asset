@@ -32,7 +32,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 1088
   priceArcher: 100
-  viewAngle: 70
+  viewAngle: 95
   towerLevelDataList:
   - levelTower: 1
     currentSprite: {fileID: -498411527, guid: d509ff5b3c031d3408a74f368ce10612, type: 3}
